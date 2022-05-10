@@ -1,3 +1,6 @@
+//учимось працювати з гітхабом(не виходить)
+
+
 #include <iostream>
 #include <map>
 #include <vector>
