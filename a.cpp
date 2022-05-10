@@ -52,6 +52,9 @@ void generate(int nwords) {
 	}
 }
 
+
+
+///   21:51 кам кам кам
 int main() {
 	//set random seed to try to generate different texts every time
 	srand(time(0));
