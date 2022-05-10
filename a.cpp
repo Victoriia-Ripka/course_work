@@ -32,7 +32,7 @@ void build(Prefix& prefix, istream& in) {
 		add(prefix, buf);
 }
 
-//generate: produce output
+//generate: produce output, one word
 void generate(int nwords) {
 	Prefix prefix;
 	int i;
