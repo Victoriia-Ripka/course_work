@@ -5,6 +5,9 @@
 */
 
 //18:25
+
+//гапии
+
 #include <iostream>
 #include <string>
 
