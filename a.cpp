@@ -76,6 +76,7 @@ void test(string Name){
 int main(void){
     string D = "Дімочка <3\n";
     test(D);
+    introduction();
     // //Ширина маленькького віконця 80
     // for(int i=0; i<80; i++){
     //     //Довжина маленького віконця 24
