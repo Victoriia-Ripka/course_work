@@ -36,6 +36,22 @@ bool check(char a){
     return 1;
 };
 
+// функція - вступ до гри
+void introduction()
+{
+    string userAns;
+
+    cout << "You are about to play *назва гри*, custom version of MadLibs Game.";
+    cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
+    cin >> userAns;
+    
+    if(userAns == "Y" || userAns == "y")
+    {
+        cout << "\nMadMusicians is a word game. You are asked for words to create \nyou own history ";
+        cout << "about your *придумати про що*" << endl;
+    }
+    cout << endl << endl;
+}
 
 int main(void){
     //Ширина маленькького віконця 80
@@ -46,5 +62,6 @@ int main(void){
         }
     }
 }
+
 
 
