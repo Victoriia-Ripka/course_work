@@ -4,6 +4,15 @@
 3. Коментарі лишніми не будуть ніколи
 */
 
+//Версія Віталіка
+//0:09
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+=======
 #include <iostream>
 #include <string>
 
@@ -37,3 +46,5 @@ int main(void){
         }
     }
 }
+}
+
