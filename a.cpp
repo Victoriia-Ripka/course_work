@@ -12,6 +12,13 @@
 using namespace std;
 
 
+=======
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
 //Клас сцена - основна "ячейка" даних нашої програми
 //В ньому зберігаються вся інформація про кожну сцену нашої історії
 class Scene{
@@ -39,3 +46,5 @@ int main(void){
         }
     }
 }
+}
+
