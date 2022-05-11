@@ -1,75 +1,39 @@
-//учимось працювати з гітхабом(не виходить)
-//Чекай, що можу 22:26
-
-//21:59 ось так ось
-//22:02
+/* Моменти, які варто нагадати, перед виконанням лабораторної роботи
+1. Май повагу до чужого труду. Не змінюй або видаляй чужий код без дозволу
+2. Страйся писати розбірчивий код. (Нормальні назви змінних і функцій, не обічрана логіка і т.д.)
+3. Коментарі лишніми не будуть ніколи
+*/
 
 #include <iostream>
-#include <map>
-#include <vector>
-#include <deque>
 #include <string>
-#include <cstdlib>
+
 using namespace std;
 
-typedef deque<string> Prefix;
-map<Prefix, vector<string>> statetab;
 
-enum{
-	NPREF = 2,     //number of prefixes  //1 for total fun 
-	NHASH = 10000,  //4093, /*size of state hash table array*/
-	MAXGEN = 10000 //maximum words generated
+//Клас сцена - основна "ячейка" даних нашої програми
+//В ньому зберігаються вся інформація про кожну сцену нашої історії
+class Scene{
+
+    public:
 };
-char NONWORD[] = "/n"; /*cannot appear as a word*/
 
-// add: add word to suffix list, update prefix
-void add(Prefix& prefix, const string& s){
-	if (prefix.size() == NPREF){
-		statetab[prefix].push_back(s);
-		prefix.pop_front();
-	}
-	prefix.push_back(s);
+//Функція для зчитування даних
+void input(){
+
+};
+//Важлива частина нашої програми - перевірка вводу
+//Функція, що перевіряє ввід 
+bool check(char a){
+    return 1;
+};
+
+
+int main(void){
+    //Ширина маленькького віконця 80
+    for(int i=0; i<80; i++){
+        //Довжина маленького віконця 24
+        for(int j=0; j<24; j++){
+        cout << "_";
+        }
+    }
 }
-
-// build: read input words, build state table
-void build(Prefix& prefix, istream& in) {
-	string buf;
-	while (in >> buf)
-		add(prefix, buf);
-}
-
-//generate: produce output, one word
-void generate(int nwords) {
-	Prefix prefix;
-	int i;
-	for (i=0; i<NPREF; i++) //reset initial prefix
-		add(prefix, NONWORD);
-	for (i=0; i<nwords; i++){
-		vector<string>& suf = statetab[prefix];
-		const string& w = suf[rand() % suf.size()];
-		if (w == NONWORD)
-			break;
-		cout << w << " ";
-		prefix.pop_front(); // advance
-		prefix.push_back(w);
-	}
-}
-
-
-
-///   21:51 кам кам кам
-int main() {
-	//set random seed to try to generate different texts every time
-	srand(time(0));
-	cout << "Тяжко";
-	//Кам від Віталіка <3
-	int nwords = MAXGEN; 
-	Prefix prefix; // current input prefix
-	for (int i=0; i<NPREF; i++) //set up initial prefix
-		add(prefix, NONWORD);
-	build(prefix, cin);
-	add(prefix, NONWORD);
-	generate(nwords);
-	return 0;
-}
-// cum cum cum
