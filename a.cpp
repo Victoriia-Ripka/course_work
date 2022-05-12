@@ -18,6 +18,17 @@ class Scene{
     public:
 };
 
+//Не впевнений, чи є сенс зберіагати дані про розмір екрану в класі, але най буде
+class Screan_size{
+    int hight;
+    int width;
+    public:
+    Screan_size(int h, int w){
+        hight = h;
+        width = w;
+    }
+};
+
 //Функція для зчитування даних
 void input(){
 
@@ -80,8 +91,21 @@ void test(string Name){
     // }
 }
 
+void ask_screan_size(){
+    char ans;
+    cout << "Бажаєте грати в вікні?(Y-так)";
+    cin >> ans;
+    if (ans == 'Y'){
+        Screan_size screan(24,80);
+    } else {
+        //Треба дізнатись розмір фулсуріну
+        Screan_size screan(1, 1);
+    }
+}
+
 int main(void){
-      introduction();
+    introduction();
+    ask_screan_size();
     string D = "Дімочка <3\n";
     test(D);
     // //Ширина маленькького віконця 80
