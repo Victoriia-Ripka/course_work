@@ -6,15 +6,22 @@
 
 #include "function.h"
 
+
 int main()
 {
+    scene script[N];
+script[0].set(0, 0, "Sreak", "CUM, CUM, CUM");
+script[1].set(0, 0, "Sreak", "Bum, bum, bum");
+script[2].set(0, 0, "Sreak", "Parapapam");
+
     input info;
     introduction();
     f_input(&info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     
     for(int i=0; i<N; i++){
-    show_scene (a[i]);
+    show_scene (script[i]);
+    getchar();
     }
     return 0;
 }

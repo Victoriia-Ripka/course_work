@@ -1,14 +1,5 @@
 //Функції кидати сюди
-#include <iostream>
-#include <fstream>
-#include <cstring>
-
 #include "script.h"
-
-using namespace std;
-
-#define SIZE 99
-
 
 class input{
     public:
@@ -36,7 +27,12 @@ int is_verb(char verb[SIZE]);
 //Генерує кілька випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void Pitun_speak();
 
-
+void scene::set(int ls, int p, char n[SIZE], char t[SIZE*5]){
+    landscape = ls;
+    personen = p;
+    strcpy(name,n);
+    strcpy(text,t);
+};
 
 void introduction()
 {
@@ -45,6 +41,7 @@ void introduction()
     cout << "You are about to play *назва гри*, custom version of MadLibs Game.";
     cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
+    getchar();//Ігнорування ентер
     
     if(userAns == "Y" || userAns == "y")
     {
@@ -55,25 +52,20 @@ void introduction()
 }
 
 void show_scene(scene a){
-    //Стираємо весь екран
-
+    cout << "\033[2J\033[1;1H";//Важлива поєбота, не стирати
+    int q;
     //Малюнки персонажів
     //Заглушечка на 15 строчок
     for(int i=0;i<15;i++){
         cout << endl;
     }
 
-    // //Перевірка, чи є спікер в сцені
-    // // if(a.speaker != '\0'){
-    //     poloska();
-    //     cout << a.speaker;
-    // // }
-    poloska();
-    //cout << a.text;
-    //Заглушечка
-    for(int i=0;i<8;i++){
-        cout << endl;
+    if(strcmp(a.name,"\0")!=0){
+        poloska();
+        cout << a.name <<endl;
     }
+    poloska();
+    cout << a.text;
 }
 
 void poloska(){
@@ -90,6 +82,7 @@ void f_input(input* info){
     inp_verb(info->verb);
 }
 
+//Треба заборонити спецсимволи!!
 void inp_name(char name[SIZE]){
     cout << "Input name" << endl;
     cin.getline(name, SIZE);
@@ -100,6 +93,7 @@ void inp_name(char name[SIZE]){
     }
 }
 
+//Треба заборонити спецсимволи!!
 void inp_noun(char noun[SIZE]){
     cout << "Input noun in the plural" << endl;
     cin.getline(noun, SIZE);
