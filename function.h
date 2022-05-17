@@ -33,6 +33,9 @@ int is_numeric(char numeric[SIZE]);
 int is_part_of_the_body(char body[SIZE]);
 int is_verb(char verb[SIZE]);
 
+//Генерує кілька випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
+void Pitun_speak();
+
 
 
 void introduction()
