@@ -28,7 +28,7 @@ int is_part_of_the_body(char body[SIZE])
         return 0;
     }
 
-    char p_o_t_b[9];
+    char p_o_t_b[99];
     do
     {
         f >> p_o_t_b;
@@ -54,7 +54,7 @@ int is_verb(char verb[SIZE])
         return 0;
     }
 
-    char d_o_v[10];
+    char d_o_v[SIZE];
     do
     {
         f >> d_o_v;
