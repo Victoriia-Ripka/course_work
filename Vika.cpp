@@ -62,7 +62,7 @@ int is_verb(char verb[99])
 
     if (strcmp(d_o_v, verb) != 0)
     {
-        cout << "Not correct. Input part of the body" << endl;
+        cout << "Not correct. Input verb" << endl;
         cin.getline(verb, 99);
         is_verb(verb);
     }
