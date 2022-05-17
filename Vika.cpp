@@ -2,6 +2,8 @@
 #include <fstream>
 #include <cstring>
 using namespace std;
+
+#define SIZE 99
 //ім'я персонажа, іменник у множині, число, частина тіла, дієслово
 
 int is_numeric(char numeric[99])
