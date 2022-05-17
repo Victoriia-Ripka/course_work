@@ -235,6 +235,7 @@ Creep
 Crept
 Creeps
 Creeping
+Cum
 Cut
 Cuts
 Cutting
@@ -1174,6 +1175,7 @@ creep
 crept
 creeps
 creeping
+cum
 cut
 cuts
 cutting
