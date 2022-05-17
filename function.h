@@ -39,18 +39,17 @@ void introduction()
 {
     string userAns;
 
-    cout << "\nЗараз ви зіграєте в *назва гри*, покращену версію гри *Божевільні бібліотекарі*.";
-    cout << "Якщо вам необхідна інструкція, введіть \"Y\".\n Інакше, введіть будь-що: " << endl;
+    cout << "You are about to play *назва гри*, custom version of MadLibs Game.";
+    cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
     
     if(userAns == "Y" || userAns == "y")
     {
-        cout << "\n*Назва гри* - це словесна гра. Ми вас просимо ввести деякі слова, щоби на їх основі \n";
-        cout << "створити перснолазівану історію про *придумати про що*" << endl;
+        cout << "\n*назна гри* is a word game. You are asked for words to create \nyou own history ";
+        cout << "about your *придумати про що*" << endl;
     }
     cout << endl << endl;
 }
-
 
 void show_scene(scene a){
     //Стираємо весь екран
