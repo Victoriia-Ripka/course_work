@@ -9,9 +9,9 @@
 int main()
 {
     input info;
-    // introduction();
-    // f_input(&info);
-    // cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
+    introduction();
+    f_input(&info);
+    cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     show_scene (a[0]);
     return 0;
 }
