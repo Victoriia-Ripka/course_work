@@ -88,7 +88,7 @@ int main()
 
     cout << "Input noun in the plural" << endl;
     cin.getline(noun, SIZE);
-    if (noun[2] == '\0' || noun[0] == '\0' || noun[1] == '\0' || noun[sizeof(noun) - 1] != 's')
+    while (noun[2] == '\0' || noun[0] == '\0' || noun[1] == '\0' || (noun[strlen(noun)-1] != 's'))
     {
         cout << "Not correct. Input noun in the plural" << endl;
         cin.getline(noun, SIZE);
