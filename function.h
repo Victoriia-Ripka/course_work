@@ -41,7 +41,6 @@ void introduction()
     cout << "You are about to play *назва гри*, custom version of MadLibs Game.";
     cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
-    getchar();//Ігнорування ентер
     
     if(userAns == "Y" || userAns == "y")
     {

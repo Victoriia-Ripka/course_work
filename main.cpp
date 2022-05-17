@@ -10,9 +10,9 @@
 int main()
 {
     scene script[N];
-script[0].set(0, 0, "Sreak", "CUM, CUM, CUM");
-script[1].set(0, 0, "Sreak", "Bum, bum, bum");
-script[2].set(0, 0, "Sreak", "Parapapam");
+// script[0].set(0, 0, "Sreak", "CUM, CUM, CUM");
+// script[1].set(0, 0, "Sreak", "Bum, bum, bum");
+// script[2].set(0, 0, "Sreak", "Parapapam");
 
     input info;
     introduction();
