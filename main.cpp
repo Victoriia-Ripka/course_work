@@ -12,6 +12,9 @@ int main()
     introduction();
     f_input(&info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
-    show_scene (a[0]);
+    
+    for(int i=0; i<N; i++){
+    show_scene (a[i]);
+    }
     return 0;
 }
