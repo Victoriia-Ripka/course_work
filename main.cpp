@@ -5,6 +5,7 @@
 */
 
 #include "function.h"
+//#include "сценарій.h"
 
 int main()
 {
