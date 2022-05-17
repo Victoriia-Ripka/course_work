@@ -3,6 +3,8 @@
 #include <fstream>
 #include <cstring>
 
+#include "script.h"
+
 using namespace std;
 
 #define SIZE 99
@@ -17,6 +19,10 @@ class input{
          verb[SIZE];
 };
 
+
+void introduction();
+void show_scene(scene a);
+void poloska();
 void f_input(input* info);
 void inp_name(char name[SIZE]);
 void inp_noun(char noun[SIZE]);
@@ -26,6 +32,8 @@ void inp_part_of_the_body(char body[SIZE]);
 int is_numeric(char numeric[SIZE]);
 int is_part_of_the_body(char body[SIZE]);
 int is_verb(char verb[SIZE]);
+
+
 
 void introduction()
 {
@@ -43,6 +51,34 @@ void introduction()
     cout << endl << endl;
 }
 
+
+void show_scene(scene a){
+    //Стираємо весь екран
+
+    //Малюнки персонажів
+    //Заглушечка на 15 строчок
+    for(int i=0;i<15;i++){
+        cout << endl;
+    }
+
+    // //Перевірка, чи є спікер в сцені
+    // // if(a.speaker != '\0'){
+    //     poloska();
+    //     cout << a.speaker;
+    // // }
+    poloska();
+    //cout << a.text;
+    //Заглушечка
+    for(int i=0;i<8;i++){
+        cout << endl;
+    }
+}
+
+void poloska(){
+    for(int i=0; i<80; i++){
+        cout << '-';
+    }
+}
 
 void f_input(input* info){
     inp_name(info->name);
