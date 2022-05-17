@@ -27,6 +27,23 @@ int is_numeric(char numeric[SIZE]);
 int is_part_of_the_body(char body[SIZE]);
 int is_verb(char verb[SIZE]);
 
+void introduction()
+{
+    string userAns;
+
+    cout << "\nЗараз ви зіграєте в *назва гри*, покращену версію гри *Божевільні бібліотекарі*.";
+    cout << "Якщо вам необхідна інструкція, введіть \"Y\".\n Інакше, введіть будь-що: " << endl;
+    cin >> userAns;
+    
+    if(userAns == "Y" || userAns == "y")
+    {
+        cout << "\n*Назва гри* - це словесна гра. Ми вас просимо ввести деякі слова, щоби на їх основі \n";
+        cout << "створити перснолазівану історію про *придумати про що*" << endl;
+    }
+    cout << endl << endl;
+}
+
+
 void f_input(input* info){
     inp_name(info->name);
     inp_noun(info->noun);

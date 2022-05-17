@@ -6,10 +6,11 @@
 
 #include "function.h"
 
-int main(){
+int main()
+{
     input info;
+    introduction();
     f_input(&info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     return 0;
 }
-
