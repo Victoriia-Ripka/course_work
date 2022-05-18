@@ -73,8 +73,8 @@ void introduction()
         cout << "\n*назна гри* is a word game. You are asked for words to create \nyou own history ";
         cout << "about your *придумати про що*" << endl;
     }
-    //Очистка буфера
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');//Очистка буфера
     cout << endl << endl;
 }
 
