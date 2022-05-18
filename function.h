@@ -41,8 +41,7 @@ void scene::set(int ls, int p, char n[SIZE], char t[SIZE*5]){
 
 void show_scene(scene a){
     //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
-    cout << "\033[2J\033[1;1H";//Важлива поєбота, не стирати 
-                                //краще б ти написав, що ця поєбота робить -_-
+    cout << "\033[2J\033[1;1H";
     //Малюнки персонажів
     //Заглушечка на 15 строчок
     for(int i=0;i<15;i++){
@@ -116,7 +115,6 @@ void is_name(char name[SIZE]){
         }
 }
 
-//Треба заборонити спецсимволи!!
 void inp_noun(char noun[SIZE]){
     cout << "Input noun in the plural" << endl;
     cin.getline(noun, SIZE);
