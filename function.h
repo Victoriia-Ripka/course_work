@@ -30,9 +30,8 @@ void is_verb(char verb[SIZE]);
 //Генерує кілька випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void Pitun_speak();
 
-void scene::set(int ls, int p, char n[SIZE], char t[SIZE*5]){
+void scene::set(int ls, char n[SIZE], char t[SIZE*5]){
     landscape = ls;
-    personen = p;
     strcpy(name,n);
     strcpy(text,t);
 };
@@ -44,21 +43,15 @@ void show_scene(scene a){
     cout << "\033[2J\033[1;1H";
     //Малюнки персонажів
     //Заглушечка на 15 строчок
-    for(int i=0;i<15;i++){
-        cout << endl;
-    }
+    printscene(a.landscape);
 
-    // //Перевірка, чи є спікер в сцені
-    // // if(a.speaker != '\0'){
-    //     poloska();
-    //     cout << a.speaker;
-    // // }
-    poloska();
-    //cout << a.text;
-    //Заглушечка
-    for(int i=0;i<8;i++){
-        cout << endl;
+    //Перевірка, чи є спікер в сцені
+    if(strcmp(a.name, "\0")){
+        poloska();
+        cout << a.name << endl;
     }
+    poloska();
+    cout << a.text;
 }
 
 void poloska(){
@@ -80,7 +73,8 @@ void introduction()
         cout << "\n*назна гри* is a word game. You are asked for words to create \nyou own history ";
         cout << "about your *придумати про що*" << endl;
     }
-    getchar();//Ігнорування ентер
+    //Очистка буфера
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << endl << endl;
 }
 

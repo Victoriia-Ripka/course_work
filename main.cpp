@@ -10,12 +10,12 @@
 int main()
 {
     scene script[N];
-// script[0].set(0, 0, "Sreak", "CUM, CUM, CUM");
-// script[1].set(0, 0, "Sreak", "Bum, bum, bum");
-// script[2].set(0, 0, "Sreak", "Parapapam");
+script[0].set(1, "Sreak", "CUM, CUM, CUM");
+script[1].set(2, "Sreak", "Bum, bum, bum");
+script[2].set(3, "Sreak", "Parapapam");
 
     input info;
-    //introduction();
+    introduction();
     f_input(&info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     
