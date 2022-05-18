@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cstring>
 #include <stdlib.h>
+#include <limits>
 
 #define N 3 //Кількість сцен //сумніваюсь що треба клк сцен через дефайн
 //воно якось не гнучко зовсім
