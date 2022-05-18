@@ -15,7 +15,7 @@ int main()
 // script[2].set(0, 0, "Sreak", "Parapapam");
 
     input info;
-    introduction();
+    //introduction();
     f_input(&info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     

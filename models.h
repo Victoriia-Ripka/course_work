@@ -3,6 +3,14 @@
 друк аскіі картинки зліпленої з тої дичини,
 що ми її сюди покладемо. */
 #include <iostream>
+#include <fstream>
+#include <cstring>
+#include <stdlib.h>
+
+#define N 3 //Кількість сцен //сумніваюсь що треба клк сцен через дефайн
+//воно якось не гнучко зовсім
+#define SIZE 99
+
 using namespace std;
 
 

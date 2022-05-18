@@ -21,6 +21,8 @@ void inp_noun(char noun[SIZE]);
 void inp_numeric(char numeric[SIZE]);
 void inp_verb(char verb[SIZE]);
 void inp_part_of_the_body(char body[SIZE]);
+void is_name(char name[SIZE]);
+void is_noun(char noun[SIZE]);
 void is_numeric(char numeric[SIZE]);
 void is_part_of_the_body(char body[SIZE]);
 void is_verb(char verb[SIZE]);
@@ -79,6 +81,7 @@ void introduction()
         cout << "\n*назна гри* is a word game. You are asked for words to create \nyou own history ";
         cout << "about your *придумати про що*" << endl;
     }
+    getchar();//Ігнорування ентер
     cout << endl << endl;
 }
 
@@ -100,22 +103,34 @@ void inp_part_of_the_body(char body[SIZE]){
 void inp_name(char name[SIZE]){
     cout << "Input name" << endl;
     cin.getline(name, SIZE);
-    while (!isupper(name[0]) || name[1] == '\0' || name[0] == '\0')
-    {
-        cout << "Not correct. Input name" << endl;
-        cin.getline(name, SIZE);
-    }
+    is_name(name);
+}
+
+void is_name(char name[SIZE]){
+    for (int i = 0; name[i] != '\0'; i++)
+        if (!(isupper(name[0]) && isalpha(name[i])))
+        {
+            cout << "Not correct. Input name" << endl;
+            cin.getline(name, SIZE);
+            is_name(name);
+        }
 }
 
 //Треба заборонити спецсимволи!!
 void inp_noun(char noun[SIZE]){
     cout << "Input noun in the plural" << endl;
     cin.getline(noun, SIZE);
-    while (noun[2] == '\0' || noun[0] == '\0' || noun[1] == '\0' || (noun[strlen(noun)-1] != 's'))
-    {
-        cout << "Not correct. Input noun in the plural" << endl;
-        cin.getline(noun, SIZE);
-    }
+    is_noun(noun);
+}
+
+void is_noun(char noun[SIZE]){
+    for (int i = 0; noun[i] != '\0'; i++)
+        if (!((noun[strlen(noun)-1] == 's') && isalpha(noun[i])))
+        {
+            cout << "Not correct. Input noun in the plural" << endl;
+            cin.getline(noun, SIZE);
+            is_noun(noun);
+        }
 }
 
 void inp_numeric(char numeric[SIZE]){
@@ -141,15 +156,6 @@ void is_numeric(char numeric[SIZE])
         }
 }
 
-void is_noun(char noun[SIZE]){
-cout << "Input noun in the plural" << endl;
-    cin.getline(noun, SIZE);
-    while (noun[2] == '\0' || noun[0] == '\0' || noun[1] == '\0' || (noun[strlen(noun)-1] != 's'))
-    {
-        cout << "Not correct. Input noun in the plural" << endl;
-        cin.getline(noun, SIZE);
-    }
-}
 
 void is_part_of_the_body(char body[SIZE])
 {
