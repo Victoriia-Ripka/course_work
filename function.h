@@ -1,3 +1,4 @@
+
 //Функції кидати сюди
 #include "script.h"
 
@@ -20,9 +21,9 @@ void inp_noun(char noun[SIZE]);
 void inp_numeric(char numeric[SIZE]);
 void inp_verb(char verb[SIZE]);
 void inp_part_of_the_body(char body[SIZE]);
-int is_numeric(char numeric[SIZE]);
-int is_part_of_the_body(char body[SIZE]);
-int is_verb(char verb[SIZE]);
+void is_numeric(char numeric[SIZE]);
+void is_part_of_the_body(char body[SIZE]);
+void is_verb(char verb[SIZE]);
 
 //Генерує кілька випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void Pitun_speak();
@@ -33,6 +34,37 @@ void scene::set(int ls, int p, char n[SIZE], char t[SIZE*5]){
     strcpy(name,n);
     strcpy(text,t);
 };
+
+
+
+void show_scene(scene a){
+    //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
+    cout << "\033[2J\033[1;1H";//Важлива поєбота, не стирати 
+                                //краще б ти написав, що ця поєбота робить -_-
+    //Малюнки персонажів
+    //Заглушечка на 15 строчок
+    for(int i=0;i<15;i++){
+        cout << endl;
+    }
+
+    // //Перевірка, чи є спікер в сцені
+    // // if(a.speaker != '\0'){
+    //     poloska();
+    //     cout << a.speaker;
+    // // }
+    poloska();
+    //cout << a.text;
+    //Заглушечка
+    for(int i=0;i<8;i++){
+        cout << endl;
+    }
+}
+
+void poloska(){
+    for(int i=0; i<80; i++){
+        cout << '-';
+    }
+}
 
 void introduction()
 {
@@ -50,31 +82,18 @@ void introduction()
     cout << endl << endl;
 }
 
-void show_scene(scene a){
-    cout << "\033[2J\033[1;1H";//Важлива поєбота, не стирати 
-                                //краще б ти написав, що ця поєбота робить -_-
-    int q;
-    //Малюнки персонажів
-    //Заглушечка на 15 строчок
-    for(int i=0;i<15;i++){
-        cout << endl;
-    }
-
-    if(strcmp(a.name,"\0")!=0){
-        poloska();
-        cout << a.name <<endl;
-    }
-    poloska();
-    cout << a.text;
-}
-
-
 void f_input(input* info){
     inp_name(info->name);
     inp_noun(info->noun);
     inp_numeric(info->numeric);
     inp_part_of_the_body(info->body);
     inp_verb(info->verb);
+}
+
+void inp_part_of_the_body(char body[SIZE]){
+    cout << "Input part of the body" << endl;
+    cin.getline(body, SIZE);
+    is_part_of_the_body(body);
 }
 
 //Треба заборонити спецсимволи!!
@@ -98,16 +117,11 @@ void inp_noun(char noun[SIZE]){
         cin.getline(noun, SIZE);
     }
 }
+
 void inp_numeric(char numeric[SIZE]){
     cout << "Input numeric (used numbers 0-9)" << endl;
     cin.getline(numeric, SIZE);
     is_numeric(numeric);
-}
-
-void inp_part_of_the_body(char body[SIZE]){
-    cout << "Input part of the body" << endl;
-    cin.getline(body, SIZE);
-    is_part_of_the_body(body);
 }
 
 void inp_verb(char verb[SIZE]){
@@ -116,7 +130,7 @@ void inp_verb(char verb[SIZE]){
     is_verb(verb);
 }
 
-int is_numeric(char numeric[SIZE])
+void is_numeric(char numeric[SIZE])
 {
     for (int i = 0; numeric[i] != '\0'; i++)
         if (numeric[i] < 48 || numeric[i] > 57)
@@ -125,8 +139,8 @@ int is_numeric(char numeric[SIZE])
             cin.getline(numeric, SIZE);
             is_numeric(numeric);
         }
-    return 0;
 }
+
 void is_noun(char noun[SIZE]){
 cout << "Input noun in the plural" << endl;
     cin.getline(noun, SIZE);
@@ -137,14 +151,13 @@ cout << "Input noun in the plural" << endl;
     }
 }
 
-int is_part_of_the_body(char body[SIZE])
+void is_part_of_the_body(char body[SIZE])
 {
     ifstream f;
     f.open("parts_of_the_body.txt");
     if (!f.is_open())
     {
         cout << "error opening file" << endl;
-        return 0;
     }
 
     char p_o_t_b[99];
@@ -160,17 +173,15 @@ int is_part_of_the_body(char body[SIZE])
         is_part_of_the_body(body);
     }
     f.close();
-    return 0;
 }
 
-int is_verb(char verb[SIZE])
+void is_verb(char verb[SIZE])
 {
     ifstream f;
     f.open("dictionary_of_verbs.txt");
     if (!f.is_open())
     {
         cout << "error opening file" << endl;
-        return 0;
     }
 
     char d_o_v[SIZE];
@@ -186,5 +197,4 @@ int is_verb(char verb[SIZE])
         is_verb(verb);
     }
     f.close();
-    return 0;
 }
