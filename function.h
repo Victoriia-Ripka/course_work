@@ -68,11 +68,6 @@ void show_scene(scene a){
     cout << a.text;
 }
 
-void poloska(){
-    for(int i=0; i<80; i++){
-        cout << '-';
-    }
-}
 
 void f_input(input* info){
     inp_name(info->name);
