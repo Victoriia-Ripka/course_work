@@ -50,8 +50,7 @@ void all_lower(char* word){
 void show_scene(scene a){
     //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
     cout << "\033[2J\033[1;1H";
-    //Малюнки персонажів
-    //Заглушечка на 15 строчок
+    //Візуалізація написананого
     printscene(a.landscape);
 
     //Перевірка, чи є спікер в сцені
@@ -59,6 +58,7 @@ void show_scene(scene a){
         poloska();
         cout << a.name << endl;
     }
+    
     poloska();
     cout << a.text;
 }
