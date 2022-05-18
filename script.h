@@ -3,7 +3,8 @@
 #include <cstring>
 #include <stdlib.h>
 
-#define N 3 //Кількість сцен
+#define N 3 //Кількість сцен //сумніваюсь що треба клк сцен через дефайн
+//воно якось не гнучко зовсім
 #define SIZE 99
 
 using namespace std;
