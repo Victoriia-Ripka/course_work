@@ -27,6 +27,7 @@ void is_numeric(char numeric[SIZE]);
 void is_part_of_the_body(char body[SIZE]);
 void all_lover(char* word);
 void is_verb(char verb[SIZE]);
+void all_lower(char* word);
 
 //Генерує кілька випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void Pitun_speak();
@@ -37,11 +38,13 @@ void scene::set(int ls, char n[SIZE], char t[SIZE*5]){
     strcpy(text,t);
 };
 
-// void all_lover(char* word){
-//     for(int i=0; i<){
-//         word[i]=
-//     }
-// }
+void all_lower(char* word){
+    int i=0;
+    while(*(word+i)!='\0'){
+        *(word+i)=tolower(*(word+i));
+        i++;
+    }
+}
 
 
 void show_scene(scene a){
@@ -90,6 +93,12 @@ void f_input(input* info){
     inp_numeric(info->numeric);
     inp_part_of_the_body(info->body);
     inp_verb(info->verb);
+    all_lower(info->name);
+    *(info->name) = toupper(*(info->name));
+    all_lower(info->noun);
+    all_lower(info->body);
+    all_lower(info->verb);
+
 }
 
 void inp_part_of_the_body(char body[SIZE]){
@@ -123,7 +132,7 @@ void inp_noun(char noun[SIZE]){
 
 void is_noun(char noun[SIZE]){
     for (int i = 0; noun[i] != '\0'; i++)
-        if (!((noun[strlen(noun)-1] == 's') && isalpha(noun[i])))
+        if (!((noun[strlen(noun)-1] == 's' ||(noun[strlen(noun)-1] == 'S')) && isalpha(noun[i])))
         {
             cout << "Not correct. Input noun in the plural" << endl;
             cin.getline(noun, SIZE);
