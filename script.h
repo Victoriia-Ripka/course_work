@@ -11,7 +11,7 @@ class scene{
     //Якщо "\0" то слова автора
     char name[SIZE];
     //Відповідно тест сцени
-    char text[SIZE*5];
+    char text[SIZE];
 };
 
 

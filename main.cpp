@@ -19,9 +19,9 @@ script[2].set(3, "Sreak", "Parapapam");
     f_input(&info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     
-    for(int i=0; i<N; i++){
-    show_scene (script[i]);
-    getchar();
-    }
+    // for(int i=0; i<N; i++){
+    // show_scene (script[i]);
+    // getchar();
+    // }
     return 0;
 }
