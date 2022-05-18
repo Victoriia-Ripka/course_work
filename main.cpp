@@ -10,9 +10,9 @@
 int main()
 {
     scene script[N];
-script[0].set(1, "Sreak", "CUM, CUM, CUM");
-script[1].set(2, "Sreak", "Bum, bum, bum");
-script[2].set(3, "Sreak", "Parapapam");
+script[0].set(1, "\0", "Shrek lived in his lair in the swamp. … His life was not beautiful, but he did not complain. He lived quietly, enjoying the morning aromas of the swamp, the croaking of frogs that kept him awake at night and the * verb * with his friend Donkey.");
+script[1].set(2, "\0", "Але сусіднє королівство не розділяло радості Шрека. Ним правив старий, немитий, плешивий карлик. Його королівство мало назву, що говорить сама за себе - Мордор. Пітун був строгим правителем, але місцевий люд це не бентежило. Вони, не вміючи думати, навпаки були раді сильній руці та з радістю потакали забаганкам Пітуна.");
+script[2].set(3, "Шрек", "Одного разу подивився Пітун на болото Шрека, й стало завидно йому. Той мав асфальт в своєму болоті, та по вечорам їв Нутеллу. Вечорами вулиці Шреку освітлювались ліхтарями. Та найбільше зависті в нього викликали *введений іменник у множині*. Отож Пітун вирішив денацифікувати болото Шреку.");
 
     input info;
     introduction();
