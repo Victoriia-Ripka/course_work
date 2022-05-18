@@ -25,6 +25,7 @@ void is_name(char name[SIZE]);
 void is_noun(char noun[SIZE]);
 void is_numeric(char numeric[SIZE]);
 void is_part_of_the_body(char body[SIZE]);
+void all_lover(char* word);
 void is_verb(char verb[SIZE]);
 
 //Генерує кілька випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
@@ -36,6 +37,11 @@ void scene::set(int ls, char n[SIZE], char t[SIZE*5]){
     strcpy(text,t);
 };
 
+// void all_lover(char* word){
+//     for(int i=0; i<){
+//         word[i]=
+//     }
+// }
 
 
 void show_scene(scene a){
