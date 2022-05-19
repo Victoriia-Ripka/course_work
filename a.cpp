@@ -1,76 +1,138 @@
-//учимось працювати з гітхабом(не виходить)
+/*Вікторія Іванівна - сонечко <3 */
 
+/* Моменти, які варто нагадати, перед виконанням лабораторної роботи
+1. Май повагу до чужого труду. Не змінюй або видаляй чужий код без дозволу
+2. Страйся писати розбірчивий код. (Нормальні назви змінних і функцій, не обічрана логіка і т.д.)
+3. Коментарі лишніми не будуть ніколи
+*/
+//З гілки Віталік 1:04
 #include <iostream>
-#include <map>
-#include <vector>
-#include <deque>
 #include <string>
-#include <cstdlib>
+#include <cstring>
+#include <windows.h>
+
 using namespace std;
 
-typedef deque<string> Prefix;
-map<Prefix, vector<string>> statetab;
 
-enum
-{
-	NPREF = 2,	   // number of prefixes  //1 for total fun
-	NHASH = 10000, // 4093, /*size of state hash table array*/
-	MAXGEN = 10000 // maximum words generated
+
+ void slow_output(string a){
+     int i=0;
+     while ( a[i] != '\0'){
+	cout << a[i];
+	//sleep(500);
+	i++;
 };
-char NONWORD[] = "/n"; /*cannot appear as a word*/
+    //  for(int i=0; i<size(a); i++){
+    //      putchar(a[i]);
+    //      sleep(500);
+    //  }
+ }
+//Клас сцена - основна "ячейка" даних нашої програми
+//В ньому зберігаються вся інформація про кожну сцену нашої історії
+class Scene{
 
-// add: add word to suffix list, update prefix
-void add(Prefix &prefix, const string &s)
+    public:
+};
+
+//Не впевнений, чи є сенс зберіагати дані про розмір екрану в класі, але най буде
+class Screan_size{
+    int hight;
+    int width;
+    public:
+    Screan_size(int h, int w){
+        hight = h;
+        width = w;
+    }
+};
+
+//Функція для зчитування даних
+void input(){
+
+};
+//Важлива частина нашої програми - перевірка вводу
+//Функція, що перевіряє ввід 
+bool check(char a){
+    return 1;
+};
+
+// функція - вступ до гри
+void introduction()
 {
-	if (prefix.size() == NPREF)
-	{
-		statetab[prefix].push_back(s);
-		prefix.pop_front();
+    string userAns;
+
+    cout << "\nЗараз ви зіграєте в *назва гри*, покращену версію гри *Божевільні бібліотекарі*.";
+    cout << "Якщо вам необхідна інструкція, введіть \"Y\".\n Інакше, введіть будь-що: " << endl;
+    cin >> userAns;
+    
+    if(userAns == "Y" || userAns == "y")
+    {
+        cout << "\n*Назва гри* - це словесна гра. Ми вас просимо ввести деякі слова, щоби на їх основі \n";
+        cout << "створити перснолазівану історію про *придумати про що*" << endl;
+    }
+    cout << endl << endl;
+}
+void test(string Name){
+	for(int i; i<12;i++){
+		cout << endl;
 	}
-	prefix.push_back(s);
-}
-
-// build: read input words, build state table
-void build(Prefix &prefix, istream &in)
-{
-	string buf;
-	while (in >> buf)
-		add(prefix, buf);
-}
-
-// generate: produce output, one word
-void generate(int nwords)
-{
-	Prefix prefix;
-	int i;
-	for (i = 0; i < NPREF; i++) // reset initial prefix
-		add(prefix, NONWORD);
-	for (i = 0; i < nwords; i++)
-	{
-		vector<string> &suf = statetab[prefix];
-		const string &w = suf[rand() % suf.size()];
-		if (w == NONWORD)
-			break;
-		cout << w << " ";
-		prefix.pop_front(); // advance
-		prefix.push_back(w);
+	for(int i=0; i<80; i++){
+		cout << "☰";
 	}
+	//cout << Name;
+	for(int i=0; i<80; i++){
+		cout << "☰";
+	}
+
+    slow_output("Кам Кам Кам .....");
 }
 
-///   21:51 кам кам кам
-int main()
-{
-	// set random seed to try to generate different texts every time
-	srand(time(0));
-	cout << "Тяжко";
-	//Кам від Віталіка <3
-	int nwords = MAXGEN;
-	Prefix prefix;					// current input prefix
-	for (int i = 0; i < NPREF; i++) // set up initial prefix
-		add(prefix, NONWORD);
-	build(prefix, cin);
-	add(prefix, NONWORD);
-	generate(nwords);
-	return 0;
+void ask_screan_size(){
+    char ans;
+    cout << "Бажаєте грати в вікні?(Y-так)";
+    cin >> ans;
+    if (ans == 'Y'){
+        Screan_size screan(24,80);
+    } else {
+        //Треба дізнатись розмір фулсуріну
+        Screan_size screan(1, 1);
+    }
 }
-// cum cum cum
+
+int main(void){
+    //introduction();
+    //ask_screan_size();
+    string D = "Дімочка <3\n";
+    test(D);
+    // //Ширина маленькького віконця 80
+    // for(int i=0; i<80; i++){
+    //     //Довжина маленького віконця 24
+    //     for(int j=0; j<24; j++){
+    //     cout << "_";
+    //     }
+    // }
+}
+
+
+//     cout <<   " ⡴⠑⡄⠀⠀⠀⠀⠀⠀⣀⣀⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   \n" 
+//          << "  ⠸⡇⠀⠿⡀⠀⣀⡴⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀  \n"
+//          << "⠀⠀⠀⠑⢄⣠⠾⠁⣀⣄⡈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀   \n"
+//          <<"⠀⠀⠀⠀⢀⡀⠁⠀⠀⠈⠙⠛⠂⠈⣿⣿⣿⣿⣿⠿⡿⢿⣆⠀⠀⠀⠀⠀⠀⠀    \n"
+//          <<"⠀⠀⠀⢀⡾⣁⣀⠀⠴⠂⠙⣗⡀⠀⢻⣿⣿⠭⢤⣴⣦⣤⣹⠀⠀⠀⢀⢴⣶⣆   \n"
+//          <<"⠀⠀⢀⣾⣿⣿⣿⣷⣮⣽⣾⣿⣥⣴⣿⣿⡿⢂⠔⢚⡿⢿⣿⣦⣴⣾⠁⠸⣼⡿  \n"
+//          <<"⠀⢀⡞⠁⠙⠻⠿⠟⠉⠀⠛⢹⣿⣿⣿⣿⣿⣌⢤⣼⣿⣾⣿⡟⠉⠀⠀⠀⠀⠀   \n"
+//          <<"⠀⣾⣷⣶⠇⠀⠀⣤⣄⣀⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀   \n"
+//          <<"⠀⠉⠈⠉⠀⠀⢦⡈⢻⣿⣿⣿⣶⣶⣶⣶⣤⣽⡹⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀   \n"
+//          <<"⠀⠀⠀⠀⠀⠀⠀⠉⠲⣽⡻⢿⣿⣿⣿⣿⣿⣿⣷⣜⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀    \n"
+//          <<"⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣷⣶⣮⣭⣽⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀    \n"
+//          <<"⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀    \n"
+//          <<"⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀    \n"
+//          <<"⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀    \n" 
+//          <<"          ⠉⠛⠻⠿⠿⠿⠿⠛⠉"
+// <<"\nПошрексимся?";
+	// //Ширина маленькького віконця 80
+    // for(int i=0; i<80; i++){
+    //     //Довжина маленького віконця 24
+    //     for(int j=0; j<24; j++){
+    //     cout << "_";
+    //     }
+    // }
