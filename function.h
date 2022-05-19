@@ -185,7 +185,6 @@ string inp_verb(){
     cout << "Input verb" << endl;
     cin.getline(buf, SIZE);
     do{
-    
     f.open("dictionary_of_verbs.txt");
     if (!f.is_open())
     {

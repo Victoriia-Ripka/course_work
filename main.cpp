@@ -16,9 +16,12 @@ int main()
     cut_paste(info, &script[0]);
     cout <<"Name: "<< info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     
-    for(int i=0; i<3; i++){ //ітераційний цикл що виводить в консоль сторінки історії
-    show_scene (script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-    getchar();              //очікування на "команду продовження"
+    int current=0;
+    for(int i=0; i<6; i++){ //ітераційний цикл що виводить в консоль сторінки історії
+    show_scene (script[current]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
+    if (getchar()!= '\n'){              //очікування на "команду продовження"
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');}//Чистка буферу
+    current++;
     }
     return 0;
 }
