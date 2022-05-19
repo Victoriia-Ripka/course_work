@@ -34,12 +34,11 @@ void is_name(char name[SIZE]);
 void is_noun(char noun[SIZE]);
 void is_numeric(char numeric[SIZE]);
 void is_part_of_the_body(char body[SIZE]);
-void all_lover(char* word);
 void is_verb(char verb[SIZE]);
 void all_lower(char* word);
 
 //Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
-void pitun_speak(int nwords);
+string pitun_speak(int nwords);
 
 void scene::set(int ls, string n, string t){
     landscape = ls;
@@ -102,11 +101,14 @@ void f_input(input* info){
     inp_numeric(info->numeric);
     inp_part_of_the_body(info->body);
     inp_verb(info->verb);
-    all_lower(info->name);
-    *(info->name) = toupper(*(info->name));
-    all_lower(info->noun);
-    all_lower(info->body);
-    all_lower(info->verb);
+    // Що я хочу, то це покласти виклики цих функцій всередину функцій інпуту, щоб ми все ще працювали з чаром 
+    // і в кінці перед засовуванням в структуру тільки конверували це в стрінгу.
+
+    // all_lower(info->name);
+    // *(info->name) = toupper(*(info->name));
+    // all_lower(info->noun);
+    // all_lower(info->body);
+    // all_lower(info->verb); 
 
 }
 
@@ -160,7 +162,7 @@ void inp_numeric(string numeric){
     cout << "Input numeric (used numbers 0-9)" << endl;
     cin.getline(buf, SIZE);
     is_numeric(buf);
-    numeric = string(buf)
+    numeric = string(buf);
 }
 
 void inp_verb(string verb){
@@ -283,8 +285,9 @@ void build(Prefix& prefix/*, istream& in*/) {
 }
 
 //generate: генеруємо репліки, по одному слову через пробіл
-void generate(int nwords) {
+string generate(int nwords) {
 	Prefix prefix;
+    string result = " ";
 	int i;
 	for (i=0; i<NPREF; i++) //скидуємо префікс і робимо його з заглушок, щоб початок працював коректно
 		add(prefix, NONWORD);
@@ -293,15 +296,18 @@ void generate(int nwords) {
 		const string& w = suf[rand() % suf.size()];
 		if (w == NONWORD)
 			break;
-		cout << w << " ";
-        if(!i%10) {cout << "\n";} //перенос рядка кожне 10 слово, 
+        result += w;
+        if(!i%10) {result += "\n";}
+		//cout << w << " ";
+        //if(!i%10) {cout << "\n";} //перенос рядка кожне 10 слово, 
                                   //з розрахунку що 10 слів десь в рядок влазить нам
 		prefix.pop_front(); // просуваємось на один префікс вперед
 		prefix.push_back(w);
 	}
+    return result;
 }
 
-void pitun_speak(int nwords) {
+string pitun_speak(int nwords) {
 	if (nwords > MAXGEN) {nwords = MAXGEN;} //щоб не вилізати за рамки сцени
 	srand(time(0)); //сід для рандому
 	Prefix prefix; // поточний префікс 
@@ -309,6 +315,6 @@ void pitun_speak(int nwords) {
 		add(prefix, NONWORD);
 	build(prefix/*, cin*/); // зчитуємо файл, формуємо таблицю
 	add(prefix, NONWORD);  // в результаті білд у нас префікс стоїть в кінці тексту, скидуємо його
-	generate(nwords);     // друк реплік.
-
+	string result = generate(nwords);     // друк реплік.
+    return result;
 }
