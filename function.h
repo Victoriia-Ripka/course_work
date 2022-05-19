@@ -11,14 +11,7 @@
 
 using namespace std;
 
-class input{
-    public:
-    string name,
-           noun,
-           numeric,
-           body,
-           verb;
-};
+
 
 
 void introduction();
@@ -62,7 +55,7 @@ void show_scene(scene a){
     printscene(a.landscape);
 
     //Перевірка, чи є спікер в сцені
-    if(a.name == "\0"){
+    if(a.name != "\0"){
         poloska();
         cout << a.name << endl;
     }

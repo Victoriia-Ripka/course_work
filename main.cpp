@@ -4,23 +4,21 @@
 3. Коментарі лишніми не будуть ніколи
 */
 
-#include "function.h"
+#include "function.h" //підключення нашої бібліотеки зі всіма функціями
 
 
 int main()
 {
     scene script[N];
-    for(int i=0;i<N;i++){
-        script[i].set(i+1, "\0", pitun_speak(50));
-    }
-    input info;
-    introduction();
-    f_input(&info);
-    cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
+    input info;     // структура для збереження даних, що вводить користувач 
+    //introduction(); // функція, що ознайомлює користувача з ідеєю гри
+    f_input(&info); // функція вводу даних користоувачем
+    cut_paste(info, &script[0]);
+    cout <<"Name: "<< info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     
-    for(int i=0; i<N; i++){
-    show_scene (script[i]);
-    getchar();
-    }
+    // for(int i=0; i<3; i++){ //ітераційний цикл що виводить в консоль сторінки історії
+    // show_scene (script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
+    // getchar();              //очікування на "команду продовження"
+    // }
     return 0;
 }

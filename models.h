@@ -14,6 +14,14 @@
 
 using namespace std;
 
+class input{
+    public:
+    string name,
+           noun,
+           numeric,
+           body,
+           verb;
+};
 
 void printscene(int x){
     switch (x){
