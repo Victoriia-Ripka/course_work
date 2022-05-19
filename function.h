@@ -42,8 +42,8 @@ string pitun_speak(int nwords);
 
 void scene::set(int ls, string n, string t){
     landscape = ls;
-    strcpy(name,n);
-    strcpy(text,t);
+    name = n;
+    text = t;
 };
 
 void all_lower(char* word){
@@ -62,7 +62,7 @@ void show_scene(scene a){
     printscene(a.landscape);
 
     //Перевірка, чи є спікер в сцені
-    if(strcmp(a.name, "\0")){
+    if(a.name == "\0"){
         poloska();
         cout << a.name << endl;
     }
