@@ -13,11 +13,11 @@ using namespace std;
 
 class input{
     public:
-    char name[SIZE],
-         noun[SIZE],
-         numeric[SIZE],
-         body[SIZE],
-         verb[SIZE];
+    string name,
+           noun,
+           numeric,
+           body,
+           verb;
 };
 
 
@@ -25,11 +25,11 @@ void introduction();
 void show_scene(scene a);
 void poloska();
 void f_input(input* info);
-void inp_name(char name[SIZE]);
-void inp_noun(char noun[SIZE]);
-void inp_numeric(char numeric[SIZE]);
-void inp_verb(char verb[SIZE]);
-void inp_part_of_the_body(char body[SIZE]);
+void inp_name(string name);
+void inp_noun(string noun);
+void inp_numeric(string numeric);
+void inp_verb(string verb);
+void inp_part_of_the_body(string body);
 void is_name(char name[SIZE]);
 void is_noun(char noun[SIZE]);
 void is_numeric(char numeric[SIZE]);
@@ -41,7 +41,7 @@ void all_lower(char* word);
 //Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void pitun_speak(int nwords);
 
-void scene::set(int ls, char n[SIZE], char t[SIZE*5]){
+void scene::set(int ls, string n, string t){
     landscape = ls;
     strcpy(name,n);
     strcpy(text,t);
@@ -110,17 +110,21 @@ void f_input(input* info){
 
 }
 
-void inp_part_of_the_body(char body[SIZE]){
+void inp_part_of_the_body(string body){
+    char buf[SIZE];
     cout << "Input part of the body" << endl;
-    cin.getline(body, SIZE);
-    is_part_of_the_body(body);
+    cin.getline(buf, SIZE);
+    is_part_of_the_body(buf);
+    body = string(buf);
 }
 
 //Треба заборонити спецсимволи!!
-void inp_name(char name[SIZE]){
+void inp_name(string name){
+    char buf[SIZE];
     cout << "Input name" << endl;
-    cin.getline(name, SIZE);
-    is_name(name);
+    cin.getline(buf, SIZE);
+    is_name(buf);
+    name = string(buf);
 }
 
 void is_name(char name[SIZE]){
@@ -133,10 +137,12 @@ void is_name(char name[SIZE]){
         }
 }
 
-void inp_noun(char noun[SIZE]){
+void inp_noun(string noun){
+    char buf[SIZE];
     cout << "Input noun in the plural" << endl;
-    cin.getline(noun, SIZE);
-    is_noun(noun);
+    cin.getline(buf, SIZE);
+    is_noun(buf);
+    noun = string(buf);
 }
 
 void is_noun(char noun[SIZE]){
@@ -149,16 +155,20 @@ void is_noun(char noun[SIZE]){
         }
 }
 
-void inp_numeric(char numeric[SIZE]){
+void inp_numeric(string numeric){
+    char buf[SIZE];
     cout << "Input numeric (used numbers 0-9)" << endl;
-    cin.getline(numeric, SIZE);
-    is_numeric(numeric);
+    cin.getline(buf, SIZE);
+    is_numeric(buf);
+    numeric = string(buf)
 }
 
-void inp_verb(char verb[SIZE]){
+void inp_verb(string verb){
+    char buf[SIZE];
     cout << "Input verb" << endl;
-    cin.getline(verb, SIZE);
-    is_verb(verb);
+    cin.getline(buf, SIZE);
+    is_verb(buf);
+    verb = string(buf);
 }
 
 void is_numeric(char numeric[SIZE])
@@ -284,6 +294,8 @@ void generate(int nwords) {
 		if (w == NONWORD)
 			break;
 		cout << w << " ";
+        if(!i%10) {cout << "\n";} //перенос рядка кожне 10 слово, 
+                                  //з розрахунку що 10 слів десь в рядок влазить нам
 		prefix.pop_front(); // просуваємось на один префікс вперед
 		prefix.push_back(w);
 	}
