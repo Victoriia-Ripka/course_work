@@ -149,7 +149,7 @@ void inp_noun(string noun){
 
 void is_noun(char noun[SIZE]){
     for (int i = 0; noun[i] != '\0'; i++)
-        if (!((noun[strlen(noun)-1] == 's' ||(noun[strlen(noun)-1] == 'S')) && isalpha(noun[i]))  || name[1] != '\0' || name[0] != '\0')
+        if (!((noun[strlen(noun)-1] == 's' ||(noun[strlen(noun)-1] == 'S')) && isalpha(noun[i]))  || noun[1] != '\0' || noun[0] != '\0')
         {
             cout << "Not correct. Input noun in the plural" << endl;
             cin.getline(noun, SIZE);
@@ -274,7 +274,7 @@ void add(Prefix& prefix, const string& s){
 void build(Prefix& prefix/*, istream& in*/) {
 	string buf;
 	ifstream textfile;
-	textfile.open("kubli.txt");
+	textfile.open("kubliy.txt");
 	if(!textfile.is_open()){
 		cout << "Error: cannot open pitun.txt file" << endl; 
 		return;

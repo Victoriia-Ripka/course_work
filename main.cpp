@@ -11,7 +11,7 @@ int main()
 {
     scene script[N];
     for(int i=0;i<N;i++){
-script[i].set(i+1, "\0", "Shrek lived in his lair in the swamp. … His life was not beautiful, but he did not complain. He lived quietly, enjoying the morning aromas of the swamp, the croaking of frogs that kept him awake at night and the * verb * with his friend Donkey.");
+script[i].set(i+1, "\0", pitun_speak(50));
     }
     input info;
     introduction();
