@@ -16,7 +16,7 @@ class scene{
 /*
 string a = "blalalal"
 srting b = "blANblalqa"
-steirn c = a + "body name " + b;
+steirn c = a + " body name " + b;
 */
 
 
