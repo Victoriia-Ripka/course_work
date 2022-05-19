@@ -296,7 +296,7 @@ string generate(int nwords) {
 		const string& w = suf[rand() % suf.size()];
 		if (w == NONWORD)
 			break;
-        if(!(i%10)) {result += "\n";}
+        if(!(i%8)) {result += "\n";}
         result += w;
         result += " ";
         

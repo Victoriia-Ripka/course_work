@@ -11,7 +11,7 @@ int main()
 {
     scene script[N];
     for(int i=0;i<N;i++){
-script[i].set(i+1, "\0", pitun_speak(50));
+        script[i].set(i+1, "\0", pitun_speak(50));
     }
     input info;
     introduction();
