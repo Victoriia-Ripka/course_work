@@ -13,6 +13,10 @@ class scene{
     string text;
 };
 
-
+/*
+string a = "blalalal"
+srting b = "blANblalqa"
+steirn c = a + "body name " + b;
+*/
 
 

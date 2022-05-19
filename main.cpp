@@ -16,6 +16,7 @@ int main()
     input info;
     introduction();
     f_input(&info);
+    // cut_paste(info);
     cout << info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
     
     for(int i=0; i<N; i++){
