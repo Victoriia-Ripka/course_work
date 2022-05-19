@@ -104,11 +104,11 @@ void f_input(input* info){
     // Що я хочу, то це покласти виклики цих функцій всередину функцій інпуту, щоб ми все ще працювали з чаром 
     // і в кінці перед засовуванням в структуру тільки конверували це в стрінгу.
 
-    // all_lower(info->name);
-    // *(info->name) = toupper(*(info->name));
-    // all_lower(info->noun);
-    // all_lower(info->body);
-    // all_lower(info->verb); 
+   // all_lower(info->name);
+   // *(info->name) = toupper(*(info->name));
+   // all_lower(info->noun);
+  //  all_lower(info->body);
+   // all_lower(info->verb); 
 
 }
 
@@ -117,6 +117,7 @@ void inp_part_of_the_body(string body){
     cout << "Input part of the body" << endl;
     cin.getline(buf, SIZE);
     is_part_of_the_body(buf);
+    all_lower(buf);
     body = string(buf);
 }
 
@@ -126,6 +127,7 @@ void inp_name(string name){
     cout << "Input name" << endl;
     cin.getline(buf, SIZE);
     is_name(buf);
+    all_lower(buf);
     name = string(buf);
 }
 
@@ -144,6 +146,7 @@ void inp_noun(string noun){
     cout << "Input noun in the plural" << endl;
     cin.getline(buf, SIZE);
     is_noun(buf);
+    all_lower(buf);
     noun = string(buf);
 }
 
@@ -170,6 +173,7 @@ void inp_verb(string verb){
     cout << "Input verb" << endl;
     cin.getline(buf, SIZE);
     is_verb(buf);
+    all_lower(buf);
     verb = string(buf);
 }
 
