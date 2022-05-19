@@ -18,16 +18,11 @@ void introduction();
 void show_scene(scene a);
 void poloska();
 void f_input(input* info);
-void inp_name(string name);
-void inp_noun(string noun);
-void inp_numeric(string numeric);
-void inp_verb(string verb);
-void inp_part_of_the_body(string body);
-void is_name(char name[SIZE]);
-void is_noun(char noun[SIZE]);
-void is_numeric(char numeric[SIZE]);
-void is_part_of_the_body(char body[SIZE]);
-void is_verb(char verb[SIZE]);
+string inp_name();
+string inp_noun();
+string inp_numeric();
+string inp_verb();
+string inp_part_of_the_body();
 void all_lower(char* word);
 
 //Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
@@ -89,102 +84,20 @@ void introduction()
 }
 
 void f_input(input* info){
-    inp_name(info->name);
-    inp_noun(info->noun);
-    inp_numeric(info->numeric);
-    inp_part_of_the_body(info->body);
-    inp_verb(info->verb);
-    // Що я хочу, то це покласти виклики цих функцій всередину функцій інпуту, щоб ми все ще працювали з чаром 
-    // і в кінці перед засовуванням в структуру тільки конверували це в стрінгу.
-
-   // all_lower(info->name);
-   // *(info->name) = toupper(*(info->name));
-   // all_lower(info->noun);
-  //  all_lower(info->body);
-   // all_lower(info->verb); 
-
+    info->name = inp_name();
+    info->noun = inp_noun();
+    info->numeric = inp_numeric();
+    info->body = inp_part_of_the_body();
+    info->verb = inp_verb();
 }
 
-void inp_part_of_the_body(string body){
+string inp_part_of_the_body(){
+    bool ind = 0;
     char buf[SIZE];
+     ifstream f;
     cout << "Input part of the body" << endl;
     cin.getline(buf, SIZE);
-    is_part_of_the_body(buf);
-    all_lower(buf);
-    body = string(buf);
-}
-
-//Треба заборонити спецсимволи!!
-void inp_name(string name){
-    char buf[SIZE];
-    cout << "Input name" << endl;
-    cin.getline(buf, SIZE);
-    is_name(buf);
-    all_lower(buf);
-    name = string(buf);
-}
-
-void is_name(char name[SIZE]){
-    for (int i = 0; name[i] != '\0'; i++)
-        if (!(isupper(name[0]) && isalpha(name[i]))  || name[1] == '\0' || name[0] == '\0')
-        {
-            cout << "Not correct. Input name" << endl;
-            cin.getline(name, SIZE);
-            is_name(name);
-        }
-}
-
-void inp_noun(string noun){
-    char buf[SIZE];
-    cout << "Input noun in the plural" << endl;
-    cin.getline(buf, SIZE);
-    is_noun(buf);
-    all_lower(buf);
-    noun = string(buf);
-}
-
-void is_noun(char noun[SIZE]){
-    for (int i = 0; noun[i] != '\0'; i++)
-        if (!((noun[strlen(noun)-1] == 's' ||(noun[strlen(noun)-1] == 'S')) && isalpha(noun[i]))  || noun[1] == '\0' || noun[0] == '\0')
-        {
-            cout << "Not correct. Input noun in the plural" << endl;
-            cin.getline(noun, SIZE);
-            is_noun(noun);
-        }
-}
-
-void inp_numeric(string numeric){
-    char buf[SIZE];
-    cout << "Input numeric (used numbers 0-9)" << endl;
-    cin.getline(buf, SIZE);
-    is_numeric(buf);
-    numeric = string(buf);
-}
-
-void inp_verb(string verb){
-    char buf[SIZE];
-    cout << "Input verb" << endl;
-    cin.getline(buf, SIZE);
-    is_verb(buf);
-    all_lower(buf);
-    verb = string(buf);
-}
-
-void is_numeric(char numeric[SIZE])
-{
-    for (int i = 0; numeric[i] != '\0'; i++)
-        if (numeric[i] < 48 || numeric[i] > 57)
-        {
-            cout << "Not correct. Input numeric" << endl;
-            cin.getline(numeric, SIZE);
-            is_numeric(numeric);
-        }
-}
-
-
-void is_part_of_the_body(char body[SIZE])
-{
-    ifstream f;
+    do{
     f.open("parts_of_the_body.txt");
     if (!f.is_open())
     {
@@ -195,20 +108,85 @@ void is_part_of_the_body(char body[SIZE])
     do
     {
         f >> p_o_t_b;
-    } while (strcmp(p_o_t_b, body) != 0 && !f.eof() && (f.get() != '\0'));
+    } while (strcmp(p_o_t_b, buf) != 0 && !f.eof() && (f.get() != '\0'));
 
-    if (strcmp(p_o_t_b, body) != 0)
+    if (strcmp(p_o_t_b, buf) != 0)
     {
         cout << "Not correct. Input part of the body" << endl;
-        cin.getline(body, SIZE);
-        is_part_of_the_body(body);
-    }
+        cin.getline(buf, SIZE);
+        ind=1;
+    } else (ind=0);
+    }while(ind);
     f.close();
+    all_lower(buf);
+    return string(buf);
 }
 
-void is_verb(char verb[SIZE])
-{
+//Треба заборонити спецсимволи!!
+string inp_name(){
+    bool ind=0;
+    char buf[SIZE];
+    cout << "Input name" << endl;
+    cin.getline(buf, SIZE);
+    do{
+     for (int i = 0; buf[i] != '\0'; i++)
+        if (!(isupper(buf[0]) && isalpha(buf[i]))  || buf[1] == '\0' || buf[0] == '\0')
+        {
+            cout << "Not correct. Input name" << endl;
+            cin.getline(buf, SIZE);
+            ind=1;
+        } else {ind = 0 ;}
+    }while(ind);    
+    all_lower(buf);
+    buf[0]=toupper(buf[0]);
+    return string(buf);
+}
+
+string inp_noun(){
+    bool ind=0;
+    char buf[SIZE];
+    cout << "Input noun in the plural" << endl;
+    cin.getline(buf, SIZE);
+    do{
+    for (int i = 0; buf[i] != '\0'; i++)
+        if (!((buf[strlen(buf)-1] == 's' ||(buf[strlen(buf)-1] == 'S')) && isalpha(buf[i]))  || buf[1] == '\0' || buf[0] == '\0')
+        {
+            cout << "Not correct. Input noun in the plural" << endl;
+            cin.getline(buf, SIZE);
+            ind=1;
+        } else {ind = 0 ;}
+    }while(ind);  
+    all_lower(buf);
+    return string(buf);
+}
+
+
+
+string inp_numeric(){
+    bool ind =0;
+    char buf[SIZE];
+    cout << "Input numeric (used numbers 0-9)" << endl;
+    cin.getline(buf, SIZE);
+    do{
+     for (int i = 0; buf[i] != '\0'; i++)
+        if (buf[i] < 48 || buf[i] > 57)
+        {
+            cout << "Not correct. Input numeric" << endl;
+            cin.getline(buf, SIZE);
+            ind=1;
+        } else {ind = 0 ;}
+    }while(ind);
+    return string(buf);
+}
+
+string inp_verb(){
     ifstream f;
+    bool ind =0;
+    char buf[SIZE];
+    cout << "Input verb" << endl;
+    cin.getline(buf, SIZE);
+    do{
+    
     f.open("dictionary_of_verbs.txt");
     if (!f.is_open())
     {
@@ -219,16 +197,22 @@ void is_verb(char verb[SIZE])
     do
     {
         f >> d_o_v;
-    } while (strcmp(d_o_v, verb) != 0 && !f.eof() && (f.get() != '\0'));
+    } while (strcmp(d_o_v, buf) != 0 && !f.eof() && (f.get() != '\0'));
 
-    if (strcmp(d_o_v, verb) != 0)
+    if (strcmp(d_o_v, buf) != 0)
     {
         cout << "Not correct. Input verb" << endl;
-        cin.getline(verb, SIZE);
-        is_verb(verb);
-    }
+        cin.getline(buf, SIZE);
+        ind =1 ;
+    } else {ind = 0 ;}
+    }while (ind);
     f.close();
+    all_lower(buf);
+    return string(buf);
 }
+ 
+
+
 
 
 
