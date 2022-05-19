@@ -296,8 +296,10 @@ string generate(int nwords) {
 		const string& w = suf[rand() % suf.size()];
 		if (w == NONWORD)
 			break;
+        if(!(i%10)) {result += "\n";}
         result += w;
-        if(!i%10) {result += "\n";}
+        result += " ";
+        
 		//cout << w << " ";
         //if(!i%10) {cout << "\n";} //перенос рядка кожне 10 слово, 
                                   //з розрахунку що 10 слів десь в рядок влазить нам
