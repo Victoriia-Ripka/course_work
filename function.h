@@ -129,7 +129,7 @@ void inp_name(string name){
 
 void is_name(char name[SIZE]){
     for (int i = 0; name[i] != '\0'; i++)
-        if (!(isupper(name[0]) && isalpha(name[i])))
+        if (!(isupper(name[0]) && isalpha(name[i]))  || name[1] != '\0' || name[0] != '\0')
         {
             cout << "Not correct. Input name" << endl;
             cin.getline(name, SIZE);
@@ -147,7 +147,7 @@ void inp_noun(string noun){
 
 void is_noun(char noun[SIZE]){
     for (int i = 0; noun[i] != '\0'; i++)
-        if (!((noun[strlen(noun)-1] == 's' ||(noun[strlen(noun)-1] == 'S')) && isalpha(noun[i])))
+        if (!((noun[strlen(noun)-1] == 's' ||(noun[strlen(noun)-1] == 'S')) && isalpha(noun[i]))  || name[1] != '\0' || name[0] != '\0')
         {
             cout << "Not correct. Input noun in the plural" << endl;
             cin.getline(noun, SIZE);
