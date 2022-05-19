@@ -11,9 +11,6 @@
 
 using namespace std;
 
-
-
-
 void introduction();
 void show_scene(scene a);
 void poloska();
