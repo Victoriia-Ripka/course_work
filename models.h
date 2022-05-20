@@ -3,6 +3,7 @@
 #include <cstring>
 #include <stdlib.h>
 #include <limits>
+#include <regex>
 using namespace std;
 
 #define N 100    //Кількість сцен
