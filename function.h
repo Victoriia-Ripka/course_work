@@ -41,7 +41,7 @@ void introduction() //функція привітання з користува�
     cout << "You are about to play *Crazy librarian*, custom version of MadLibs Game.";
     cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
-
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');//Чистка буферу
     if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes")
     {
         cout << "\n**Crazy librarian* is a word game. You are asked for words to create \nyour own history ";
