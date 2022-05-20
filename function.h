@@ -308,7 +308,7 @@ void add(Prefix &prefix, const string &s)
 }
 
 // build: відкриваємо файл, з нього зчитуємо по слову і додаємо в список, вибудовуючи тим самим хеш-таблицю
-void build(Prefix &prefix /*, istream& in*/)
+void build(Prefix &prefix)
 {
     string buf;
     ifstream textfile;
@@ -332,20 +332,18 @@ string generate(int nwords)
         add(prefix, NONWORD);
     for (i = 0; i < nwords; i++)
     {
-        vector<string> &suf = statetab[prefix];
-        const string &w = suf[rand() % suf.size()];
+        vector<string> &suf = statetab[prefix]; //додаємо суфікс з готової таблиці
+        const string &w = suf[rand() % suf.size()]; //вибираємо один з суфіксів по ключу випадковим чином
         if (w == NONWORD)
             break;
-        if (!(i % 8))
+        if (!(i % 8 - 7)) // перенос рядка раз в 8 слів
         {
             result += "\n";
         }
         result += w;
         result += " ";
 
-        // cout << w << " ";
-        // if(!i%10) {cout << "\n";} //перенос рядка кожне 10 слово,
-        //з розрахунку що 10 слів десь в рядок влазить нам
+        
         prefix.pop_front(); // просуваємось на один префікс вперед
         prefix.push_back(w);
     }
@@ -362,7 +360,7 @@ string pitun_speak(int nwords)
     Prefix prefix;                  // поточний префікс
     for (int i = 0; i < NPREF; i++) //ініціалізуємо його заглушками
         add(prefix, NONWORD);
-    build(prefix /*, cin*/);          // зчитуємо файл, формуємо таблицю
+    build(prefix);          // зчитуємо файл, формуємо таблицю
     add(prefix, NONWORD);             // в результаті білд у нас префікс стоїть в кінці тексту, скидуємо його
     string result = generate(nwords); // друк реплік.
     return result;
