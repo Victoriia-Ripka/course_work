@@ -166,7 +166,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
 
     (*(a+71)).set(20, "\0", "No one believed it, but it happened as expected. Putin personally came to \nthe forest. He really expected to"
     " receive" + info.noun + " and \n" + info.name + "’s " + info.body + " as trophies. He had no ideas\nabout a possible ambush.");
-    (*(a+72)).set(20, "\0", " - muttered Pitun under his nose.");
+    (*(a+72)).set(20, "\0", pitun_speak(15+rand()%20)+" - muttered Pitun under his nose.");
     (*(a+73)).set(20, info.name , "“How dare you say that about my Fatherland?!” \n- he thought and filled himself with rage.");
     (*(a+74)).set(20, "\0", "As soon as Pitun approached the glorious swamp, " + info.name + " jumped\nout of the trench, bent his arms and put the automaton to the temple.");
 

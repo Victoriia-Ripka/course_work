@@ -327,7 +327,7 @@ void build(Prefix &prefix)
 {
     string buf;
     ifstream textfile;
-    textfile.open("kubliy.txt");
+    textfile.open("Pitun_speak.txt");
     if (!textfile.is_open())
     {
         cout << "Error: cannot open pitun.txt file" << endl;
