@@ -15,6 +15,7 @@ public:
     //Відповідно тест сцени
     string text;
 };
+string pitun_speak(int nwords); // прототип функції генерації пітуна
 
 void cut_paste(input info, scene *a) //функція виводу реплік, яка приймає структуру даних, що ввів користувач і посилання на поточну сцену
 {
@@ -65,7 +66,8 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+18)).set(8, info.name ,"- What…");
     (*(a+19)).set(8, "\0" ,"Shrek takes out his wallet from a pocket and looks. There was "+ info.numeric +" hryvnias.");
     
-    // розвилка 1, де цифра менше за 1500
+    // розвилка 1, де цифра менше за 1500 з 20ї сцена,
+    //розвилка 2 де цифра більше за 1500 з 68ої сцени
 
     (*(a+20)).set(8, info.name ,"- OMG, I don't have enough money…");
     (*(a+21)).set(8, "Serhiy Prytula","- Welp, so I can’t help with anything. Go on.");
@@ -106,7 +108,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+42)).set(12, "Powderbot", " - Do you want a chocolate fig?");
     (*(a+43)).set(12, "Pitun", "- Well, OK, $2.000.000.");
     (*(a+44)).set(12, "Powderbot", "- Hmmm… It’s tempting. Take these two chocolate Santas, you’ll have ‘em.");
-    (*(a+45)).set(12, "Pitun", "");
+    (*(a+45)).set(12, "Pitun", pitun_speak(75));
 
     (*(a+46)).set(13, "\0", "Out of anger, he took out a cannon and started firing at Powderbot. With a well-aimed shot Pitun hit straight"
     " at his " + info.body + ". Shrek was overwhelmed with rage. He saw this horror through the window in the negotiating room and "
@@ -150,10 +152,34 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " ammunition. A fragment of the projectile hit his" + info.body + ".");
     (*(a+66)).set(17, "\0", "The " + info.name + "'s wound turned out to be deadly. By the time Fiona came to the rescue, his body was covered in blood. "
     "Out of despair, she " + info.verb + ". Fiona was very disappointed because she actually loved Shrek.");
+    (*(a+67)).set(18, "\0", "Although Pitun's death turned into a victory for Fayna Ukrayna, that forest still remained shrouded in the weeping and grief of Fiona.");
+
+    // продовження з теробороною, якщо число більше за 1500
+
+    (*(a+68)).set(8, info.name, "- You rob me, my friend, and my homeland is priceless.");
+    (*(a+69)).set(8, "Serhiy Prytula", "- Do not invent, as from yours " + info.numeric +" hryvnias subtract 1500, you will not become much poorer. But that will"
+    " go for an army, we will buy 20 nuclear toilets of type “land-air” to close 4 positions. We’ll strike a preventive shot. Here I took the map, I'll show you.");
+    (*(a+70)).set(19, "\0", "Under Shrek's command, a diversionary reconnaissance group was set up to explore areas in the woods near his swamp. He chose that task for himself,"
+    " suspecting Pitun's true purposes. He guessed that that one will come for " + info.noun + " personally. Armed, the soldiers took up positions.");
+    (*(a+71)).set(20, "\0", "No one believed it, but it happened as expected. Putin personally came to the forest. He really expected to"
+    " receive *entered noun in plural* and Shrek’s *entered part of a body* as trophies. He had no ideas about a possible ambush.");
+    (*(a+72)).set(20, "\0", " - muttered Pitun under his nose.");
+    (*(a+73)).set(20, info.name , "“How dare you say that about my Fatherland?!” - he thought and filled himself with rage.");
+    (*(a+74)).set(20, "\0", "As soon as Pitun approached the glorious swamp, Shrek jumped out of the trench, bent his arms and put the automaton to the temple.");
+    (*(a+75)).set(21, info.name, " - Well, here you are, our not-sweet lad.");
+    (*(a+76)).set(21, "Pitun", " - that one turned to its own again.");
+    (*(a+77)).set(21, info.name, " - So, you scoundrel, the conversation with you will be short. You wanted " + info.noun + " and " + info.body + " A fig"
+    " with poppy to you! You will get what you deserve.");
+    (*(a+78)).set(21, info.name, "-  Tell your troops to pierce their " + info.body + " with knives. Quickly!");
+    (*(a+79)).set(21, "Pitun", " - like doesn’t know any other words.");
+    (*(a+80)).set(21, "Shrek's soldiers", "- So, we’ll do it by ourselves");
+    (*(a+81)).set(21, "\0", "\n\n*this scene was cut off for the purposes of censorship*");
+    (*(a+82)).set(22, "\0", "Shrek protected his swamp and his lair, and didn’t give " + info.noun + ". In gratitude to the soldiers"
+    " for their cooperation, he gave one to each of them. “These affairs deserve such an award” - he considers.");
+    (*(a+83)).set(22, "\0", "He sold the obtained " + info.body + " and earned a lot of money on it. God took away, God thanked. 15000 of dollars");
+    " were now heating in his wallet and a souvenir - Pitun's canned head, which always bubbled under the nose strange random phrases like.";
+    (*(a+84)).set(22, "\0", "Shrek received a medal “For Courage“ from the President of Fayna Ukrayna, put an end to universal evil,"
+    " and lived long and happily in his swamp.");
+ 
     //(*(a+)).set();
 }
-/*
-string a = "blalalal"
-srting b = "blANblalqa"
-steirn c = a + " body name " + b;
-*/
