@@ -249,11 +249,11 @@ bool choice(){//Функція вибору сюжету історії
     {
     case '1':
     cout << "\nChoiced come to Territorial Defense";
-    return 0;
+    return 1;
         break;
     case '2':
     cout << "\nChoiced leave abroad to Polandia.";
-    return 1;
+    return 0;
         break;
     default:
     //Ввід неправильний, користувач спробує знову

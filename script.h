@@ -1,6 +1,7 @@
 #include "models.h" //бібліотека підключення наших ілюстрацій до слайдів
- // користуємось словами пітуна
-//клас сцена - головна одиниця інформації в нашій програмі
+
+
+ //клас сцена - головна одиниця інформації в нашій програмі
 //В ньому зберігається вся інформація про кожний "Слайд"
 class scene 
 {
@@ -16,6 +17,7 @@ public:
     string text;
 };
 string pitun_speak(int nwords); // прототип функції генерації пітуна
+
 
 void cut_paste(input info, scene *a) //функція виводу реплік, яка приймає структуру даних, що ввів користувач і посилання на поточну сцену
 {
@@ -124,7 +126,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+48)).set(9, info.name, "- I do not trust a Chocolate king, let’s better have guerilla warfare. Let’s better go to the forest,"
     " I had a woman I knew for a long time. She has been doing guerilla warfare since 14’s year." );
     (*(a+49)).set(9, "Donkey", "- I don’t like this idea, but I’ll not leave you alone.");
-    
+    //31
     (*(a+50)).set(15, "\0", "In the dark forest, where the cunning Pitun walks, hid Fiona, the leader of the guerrilla movement in the forests of Fayna Ukrayna.");
     (*(a+51)).set(15, "Fiona", "- Stop! I’ll shoot! Hey, say “Palianytsia”!");
     (*(a+52)).set(15, info.name, "- From what will you shoot? Automatons will be? You don't recognize an old friend, do you?"
