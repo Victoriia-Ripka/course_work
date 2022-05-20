@@ -108,7 +108,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+42)).set(12, "Powderbot", " - Do you want a chocolate fig?");
     (*(a+43)).set(12, "Pitun", "- Well, OK, $2.000.000.");
     (*(a+44)).set(12, "Powderbot", "- Hmmm… It’s tempting. Take these two chocolate Santas, you’ll have ‘em.");
-    (*(a+45)).set(12, "Pitun", pitun_speak(75));
+    (*(a+45)).set(12, "Pitun", pitun_speak(SIZE));
 
     (*(a+46)).set(13, "\0", "Out of anger, he took out a cannon and started firing at Powderbot. With a well-aimed shot Pitun hit straight"
     " at his " + info.body + ". Shrek was overwhelmed with rage. He saw this horror through the window in the negotiating room and "
@@ -142,9 +142,9 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " by the long shadows of washing machines and curling irons stolen by the Pitun’s army.");
     (*(a+59)).set(16, "Fiona", " - Take Javelins out! Everyone, get ready!");
     (*(a+60)).set(16, info.name, " - OMG, you even have this?!");
-    (*(a+61)).set(16, "Pitun", "");
+    (*(a+61)).set(16, "Pitun", pitun_speak(SIZE));
     (*(a+62)).set(16, "Fiona", "- On combat positions! Aim!... Fire!");
-    (*(a+63)).set(16, "Pitun", "");
+    (*(a+63)).set(16, "Pitun", pitun_speak(SIZE));
     (*(a+64)).set(16, "\n", "Realizing the deplorable situation, Pitun began to flee from the positions, sacrificing his army for his own life. Shrek started the chase.");
 
 
@@ -167,11 +167,11 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+73)).set(20, info.name , "“How dare you say that about my Fatherland?!” - he thought and filled himself with rage.");
     (*(a+74)).set(20, "\0", "As soon as Pitun approached the glorious swamp, Shrek jumped out of the trench, bent his arms and put the automaton to the temple.");
     (*(a+75)).set(21, info.name, " - Well, here you are, our not-sweet lad.");
-    (*(a+76)).set(21, "Pitun", " - that one turned to its own again.");
+    (*(a+76)).set(21, "Pitun", pitun_speak(int(SIZE/2)) + " - that one turned to its own again.");
     (*(a+77)).set(21, info.name, " - So, you scoundrel, the conversation with you will be short. You wanted " + info.noun + " and " + info.body + " A fig"
     " with poppy to you! You will get what you deserve.");
     (*(a+78)).set(21, info.name, "-  Tell your troops to pierce their " + info.body + " with knives. Quickly!");
-    (*(a+79)).set(21, "Pitun", " - like doesn’t know any other words.");
+    (*(a+79)).set(21, "Pitun", pitun_speak(int(SIZE/2)) + " - like doesn’t know any other words.");
     (*(a+80)).set(21, "Shrek's soldiers", "- So, we’ll do it by ourselves");
     (*(a+81)).set(21, "\0", "\n\n*this scene was cut off for the purposes of censorship*");
     (*(a+82)).set(22, "\0", "Shrek protected his swamp and his lair, and didn’t give " + info.noun + ". In gratitude to the soldiers"
@@ -180,6 +180,5 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " were now heating in his wallet and a souvenir - Pitun's canned head, which always bubbled under the nose strange random phrases like.";
     (*(a+84)).set(22, "\0", "Shrek received a medal “For Courage“ from the President of Fayna Ukrayna, put an end to universal evil,"
     " and lived long and happily in his swamp.");
- 
-    //(*(a+)).set();
+
 }
