@@ -20,6 +20,7 @@ string inp_part_of_the_body(); //функція вводу частини тіл
 void all_lower(char *word);    //функція, що робить всі літери в слові маленькими
 bool choice();                 //Функція вибору сюжету історії
 string pitun_speak(int nwords);//Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
+void answer();
 
 //Функція класу scena(сцена)
 //Функція з вхідних даних генерує схему ("склаєю окремі стрінги і число в сцену")
@@ -249,11 +250,11 @@ bool choice(){//Функція вибору сюжету історії
     {
     case '1':
     cout << "\nChoiced come to Territorial Defense";
-    return 1;
+    return 0;
         break;
     case '2':
     cout << "\nChoiced leave abroad to Polandia.";
-    return 0;
+    return 1;
         break;
     default:
     //Ввід неправильний, користувач спробує знову
@@ -263,7 +264,10 @@ bool choice(){//Функція вибору сюжету історії
     }
 }
 
-
+void answer(){
+    if (getchar()!= '\n'){              //очікування на "команду продовження"
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');}//Чистка буферу
+    }
 
 /*
 -------------------------------------------------------------------------------------

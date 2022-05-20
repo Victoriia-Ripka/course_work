@@ -178,8 +178,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+81)).set(21, "\0", "\n\n*this scene was cut off for the purposes of censorship*");
     (*(a+82)).set(22, "\0", "Shrek protected his swamp and his lair, and didn’t give " + info.noun + ". In gratitude to the soldiers"
     " for their cooperation, he gave one to each of them. “These affairs deserve such an award” - he considers.");
-    (*(a+83)).set(22, "\0", "He sold the obtained " + info.body + " and earned a lot of money on it. God took away, God thanked. 15000 of dollars");
-    " were now heating in his wallet and a souvenir - Pitun's canned head, which always bubbled under the nose strange random phrases like.";
+    (*(a+83)).set(22, "\0", "He sold the obtained " + info.body + " and earned a lot of money on it. God took away, God thanked. 15000 of dollars were now heating in his wallet and a souvenir - Pitun's canned head, which always bubbled under the nose strange random phrases like.");
     (*(a+84)).set(22, "\0", "Shrek received a medal “For Courage“ from the President of Fayna Ukrayna, put an end to universal evil,"
     " and lived long and happily in his swamp.");
 
