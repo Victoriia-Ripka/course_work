@@ -10,7 +10,7 @@ int main()
 {
     scene script[N];
     input info; // структура для збереження даних, що вводить користувач
-    // introduction(); // функція, що ознайомлює користувача з ідеєю гри
+    //introduction(); // функція, що ознайомлює користувача з ідеєю гри
     f_input(&info); // функція вводу даних користоувачем
     cut_paste(info, &script[0]);
 
@@ -24,17 +24,12 @@ int main()
     if (stoi(info.numeric) < 1500)
     { // Сюжетна розвилка
         storytale(20, 32, script);
-        if (choice_s())
-        {
+        if (choice_s()){
             storytale(32, 48, script);
-        }
-        else
-        {
+        } else {
             storytale(48, 68, script);
         }
-    }
-    else
-    {
+    } else {
         storytale(68, 85, script);
     }
 
