@@ -98,35 +98,32 @@ string inp_part_of_the_body()
     ifstream f;
     cout << "Input part of the body" << endl;
     cin.getline(buf, SIZE);
-    do
-    {
-        f.open("parts_of_the_body.txt");
+       
+        char p_o_t_b[SIZE];
+        do
+        {
+             f.open("parts_of_the_body.txt");
+
         if (!f.is_open())
         {
             cout << "error opening file" << endl;
         }
-
-        char p_o_t_b[99];
-        do
-        {
-            f >> p_o_t_b;
-        } while (strcmp(p_o_t_b, buf) != 0 && !f.eof() && (f.get() != '\0'));
-
-        if (strcmp(p_o_t_b, buf) != 0)
-        {
-            cout << "Not correct. Input part of the body" << endl;
-            cin.getline(buf, SIZE);
-            ind = 1;
-        }
-        else
-            (ind = 0);
-    } while (ind);
-    f.close();
+            do
+            {
+                f >> p_o_t_b;
+            } while ((strcmp(p_o_t_b, buf) != 0) && !f.eof() && (f.get() != '\0'));
+            if (strcmp(p_o_t_b, buf) != 0){
+                cout << "Not correct. Input part of the body" << endl;
+                cin.getline(buf, SIZE);
+                ind = 1;
+            } else {
+                ind = 0; }
+            f.close();
+        } while (ind);
     all_lower(buf);
     return string(buf);
 }
 
-//Треба заборонити спецсимволи!!
 string inp_name()
 {
     bool ind = 0;
@@ -206,24 +203,14 @@ string inp_verb()
     char buf[SIZE];
     cout << "Input verb" << endl;
     cin.getline(buf, SIZE);
-    f.open("dictionary_of_verbs.txt");
-    if (!f.is_open())
+        char d_o_v[SIZE];
+        do{
+             f.open("dictionary_of_verbs.txt");
+        if (!f.is_open())
     {
         cout << "error opening file" << endl;
     }
-
-    char d_o_v[SIZE];
-    do{
-
-        f.open("dictionary_of_verbs.txt");
-        if (!f.is_open())
-        {
-            cout << "error opening file" << endl;
-        }
-
-        char d_o_v[SIZE];
-        do
-        {
+        do{
             f >> d_o_v;
         } while (strcmp(d_o_v, buf) != 0 && !f.eof() && (f.get() != '\0'));
 
@@ -233,12 +220,10 @@ string inp_verb()
             cin.getline(buf, SIZE);
             ind = 1;
         }
-        else
-        {
-            ind = 0;
-        }
+        else{ind = 0;}  
+        f.close();  
     } while (ind);
-    f.close();
+    
     all_lower(buf);
     return string(buf);
 }
