@@ -18,7 +18,7 @@ string inp_numeric();          //функція вводу числа корис
 string inp_verb();             //функція вводу дієслова користувача, що повертає рядок
 string inp_part_of_the_body(); //функція вводу частини тіла, що повертає рядок
 void all_lower(char *word);    //функція, що робить всі літери в слові маленькими
-bool choice();                 //Функція вибору сюжету історії
+bool choice_f();                 //Функція вибору сюжету історії
 string pitun_speak(int nwords);//Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void answer();
 
@@ -238,7 +238,7 @@ void all_lower(char *word) //функція, що робить всі літер
     }
 }
 
-bool choice(){//Функція вибору сюжету історії
+bool choice_f(){//Функція вибору сюжету історії
     char ans;
     //Вивід варіантів вибору
     cout << "\n1)To come to Territorial Defense\n2)To leave abroad to Polandia.\n Your choice: ";
