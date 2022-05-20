@@ -91,32 +91,32 @@ void f_input(input *info) //функція вводу доних від кори
 //Треба заборонити спецсимволи!!
 string inp_name() //функція вводу імені користувача, що повертає рядок
 {
-    bool ind = 0;
-    char buf[SIZE];
+    bool ind = 0;   //ініціалізація локальної змінної для продовження цикла
+    char buf[SIZE]; //ініціалізація масиву символів
     cout << "Input name" << endl;
-    cin.getline(buf, SIZE);
-    do
+    cin.getline(buf, SIZE); //ввід імені (масиву символів), максимальна кількість літер 99
+    do                      //цикл з після умовою. продовжувати доти, доки ім'я не буде введено правильно
     {
-        for (int i = 0; buf[i] != '\0'; i++)
-            if (!(isupper(buf[0]) && isalpha(buf[i])) || buf[1] == '\0' || buf[0] == '\0')
+        for (int i = 0; buf[i] != '\0'; i++)                                               //ітераційний циклю посимвольна перевірка масиву на правильність вводу
+            if (!(isupper(buf[0]) && isalpha(buf[i])) || buf[1] == '\0' || buf[0] == '\0') //якщо ці умови виконуються,то ім'я введено неправильно
             {
                 cout << "Not correct. Input name" << endl;
-                cin.getline(buf, SIZE);
-                ind = 1;
+                cin.getline(buf, SIZE); //знову ввести ім'я
+                ind = 1;                //індикатор, що цикл продовжується
             }
             else
             {
-                ind = 0;
+                ind = 0; //якщо всі умови не виконуються, то помилок при вводі імені не було. цикл зупиняється
             }
     } while (ind);
-    all_lower(buf);
-    buf[0] = toupper(buf[0]);
-    return string(buf);
+    all_lower(buf);           //зробити всі літери маленькими
+    buf[0] = toupper(buf[0]); //оскільки це ім'я, то першу літеру зробити великою
+    return string(buf);       //повернути рядок, що був масивом символів
 }
 
-string inp_noun()
+string inp_noun() //функція вводу іменника у множині користувача, що повертає рядок
 {
-    bool ind = 0;
+    bool ind = 0; //логіка функції така сама, що і у функції inp_name()
     char buf[SIZE];
     cout << "Input noun in the plural" << endl;
     cin.getline(buf, SIZE);
@@ -138,9 +138,9 @@ string inp_noun()
     return string(buf);
 }
 
-string inp_numeric()
+string inp_numeric() //функція вводу числа користувача, що повертає рядок
 {
-    bool ind = 0;
+    bool ind = 0; //логіка функції така сама, що і у функції inp_name()
     char buf[SIZE];
     cout << "Input numeric (used numbers 0-9)" << endl;
     cin.getline(buf, SIZE);
@@ -161,54 +161,52 @@ string inp_numeric()
     return string(buf);
 }
 
-string inp_verb()
+string inp_verb() //функція вводу дієслова, що повертає рядок
 {
-    ifstream f;
-    bool ind = 0;
-    char buf[SIZE];
+    ifstream f;     //ініціалізація файла
+    bool ind = 0;   //ініціалізація локальної змінної для продовження цикла
+    char buf[SIZE]; //ініціалізація масиву символів
     cout << "Input verb" << endl;
-    cin.getline(buf, SIZE);
-    f.open("dictionary_of_verbs.txt");
-    if (!f.is_open())
+    cin.getline(buf, SIZE);            //ввід дієслова (масиву символів), максимальна кількість літер 99
+    f.open("dictionary_of_verbs.txt"); //відкриття файлу, що містить словник всіх допустимих дієслів і їх можливих форм
+    if (!f.is_open())                  //якщо файл не відкриється, то вивести повідомлення про помилку
     {
         cout << "error opening file" << endl;
     }
-
-    char d_o_v[SIZE];
-    do
-    {
-
-        f.open("dictionary_of_verbs.txt");
-        if (!f.is_open())
+    else
+    {      //якщо відкриється, то наступні дії
+        do //цикл з пісялумовою. виконується доки користувач не введе правильно дієслово
         {
-            cout << "error opening file" << endl;
-        }
+            f.open("dictionary_of_verbs.txt"); //відкриття файла
+            char d_o_v[SIZE];                  //ініціалізація рядка символів
+            do                                 //цикл з після умовою. з файла зчитуються рядки доти, доки
+            //не знайдеться збіг введеного користувачем масиву символів і масиву символів з файла
+            //або доки файл не закінчиться
+            {
+                f >> d_o_v; //
+            } while (strcmp(d_o_v, buf) != 0 && !f.eof() && (f.get() != '\0'));
 
-        char d_o_v[SIZE];
-        do
-        {
-            f >> d_o_v;
-        } while (strcmp(d_o_v, buf) != 0 && !f.eof() && (f.get() != '\0'));
-
-        if (strcmp(d_o_v, buf) != 0)
-        {
-            cout << "Not correct. Input verb" << endl;
-            cin.getline(buf, SIZE);
-            ind = 1;
-        }
-        else
-        {
-            ind = 0;
-        }
-    } while (ind);
-    f.close();
-    all_lower(buf);
-    return string(buf);
+            if (strcmp(d_o_v, buf) != 0) //якщо збіг не виявлено, то користувач зновву вводить дієслово
+            {
+                cout << "Not correct. Input verb" << endl;
+                cin.getline(buf, SIZE);
+                ind = 1; //індикатор 1, тобто цикл продовжується
+            }
+            else
+            {
+                ind = 0; //індиктор 0, тобто дієслово введено правильно і цикл зупиняється
+            }
+        } while (ind);
+        f.close();                //закриття файлу
+        buf[0] = tolower(buf[0]); //оскількі введені дані порівнюються з файловими, то не може бути великих літер в середині слова. Тільки перша. Її ми перетворюємо на маленьку
+        // all_lower(buf);     //перетворення всіх літер на маленькі
+        return string(buf); //повернення рядка символів з масиву символів
+    }
 }
 
-string inp_part_of_the_body()
+string inp_part_of_the_body() //функція вводу частини тіла, що повертає рядок
 {
-    bool ind = 0;
+    bool ind = 0; //логіка функції така сама, що і у функції inp_verb()
     char buf[SIZE];
     ifstream f;
     cout << "Input part of the body" << endl;
@@ -237,7 +235,8 @@ string inp_part_of_the_body()
             (ind = 0);
     } while (ind);
     f.close();
-    all_lower(buf);
+    buf[0] = tolower(buf[0]); //оскількі введені дані порівнюються з файловими, то не може бути великих літер в середині слова. Тільки перша. Її ми перетворюємо на маленьку
+    // all_lower(buf);     //перетворення всіх літер на маленькі
     return string(buf);
 }
 
