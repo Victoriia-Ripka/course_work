@@ -8,63 +8,35 @@
 
 int main()
 {
-    int i = 0;
     scene script[N];
     input info; // структура для збереження даних, що вводить користувач
     // introduction(); // функція, що ознайомлює користувача з ідеєю гри
     f_input(&info); // функція вводу даних користоувачем
     cut_paste(info, &script[0]);
-    // cout <<"Name: "<< info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
 
-    for (i = 0; i < 6; i++)
-    {                          //ітераційний цикл що виводить в консоль сторінки історії
-        show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-        answer();
-    }
-
+    storytale(0, 6, script);
     if (choice_f())
     { // В залежності від вибору починати з різних сцен
-        for (i = 6; i < 10; i++)
-        {                          //ітераційний цикл що виводить в консоль сторінки історії
-            show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-            answer();
-        }
+        storytale(6, 10, script);
     }
-
-    for (i = 10; i < 20; i++)
-    {
-        show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-        answer();
-    }
+    storytale(10, 20, script);
 
     if (stoi(info.numeric) < 1500)
     { // Сюжетна розвилка
-        for (i = 20; i < 32; i++)
-        {
-            show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-            answer();
-        }
+        storytale(20, 32, script);
         if (choice_s())
         {
-            for (i = 32; i < 48; i++)
-            {
-                show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-                answer();
-            }} else {
-                for (i = 48; i < 68; i++)
-                {
-                    show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-                    answer();
-                }
-            }
+            storytale(32, 48, script);
         }
-    else
-    {
-        for (i = 68; i < 85; i++)
+        else
         {
-            show_scene(script[i]); //функція виводу ілюстрації, роздільної лінії та репліки в консоль
-            answer();
+            storytale(48, 68, script);
         }
     }
+    else
+    {
+        storytale(68, 85, script);
+    }
+
     return 0;
 }
