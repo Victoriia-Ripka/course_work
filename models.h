@@ -1,9 +1,7 @@
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <stdlib.h>
-#include <limits>
-#include <regex>
+#include <fstream> // opening file in pitun_speak()
+#include <map>     //statetab map in pitun_speak()
+#include <vector>  //suffix in pitun_speak()
+#include <deque>   //prefix in pitun_speak()
 using namespace std;
 
 #define N 100    //Кількість сцен
