@@ -1,4 +1,4 @@
-#include "script.h"
+#include "script.h" //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -8,16 +8,16 @@
 #include <deque>   //prefix in pitun_speak()
 using namespace std;
 
-void introduction();
-void show_scene(scene a);
-void poloska();
-void f_input(input *info);
-string inp_name();
-string inp_noun();
-string inp_numeric();
-string inp_verb();
-string inp_part_of_the_body();
-void all_lower(char *word);
+void introduction();           //функція привітання з користувачем та ознайомлення з суттю гри
+void show_scene(scene a);      //функція виводу сцен у консоль
+void poloska();                //функція виводу роздільної смуги в консоль
+void f_input(input *info);     //функція вводу доних від користувача
+string inp_name();             //функція вводу імені користувача, що повертає рядок
+string inp_noun();             //функція вводу іменника у множині користувача, що повертає рядок
+string inp_numeric();          //функція вводу числа користувача, що повертає рядок
+string inp_verb();             //функція вводу дієслова користувача, що повертає рядок
+string inp_part_of_the_body(); //функція вводу частини тіла, що повертає рядок
+void all_lower(char *word);    //функція, що робить всі літери в слові маленькими
 
 string pitun_speak(int nwords); //Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 
@@ -28,7 +28,7 @@ void scene::set(int ls, string n, string t)
     text = t;
 };
 
-void all_lower(char *word)
+void all_lower(char *word) //функція, що робить всі літери в слові маленькими
 {
     int i = 0;
     while (*(word + i) != '\0')
@@ -213,7 +213,8 @@ string inp_verb()
     }
 
     char d_o_v[SIZE];
-    do{
+    do
+    {
 
         f.open("dictionary_of_verbs.txt");
         if (!f.is_open())
