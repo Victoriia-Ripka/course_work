@@ -28,35 +28,30 @@ void scene::set(int ls, string n, string t)
     text = t;
 };
 
-void all_lower(char *word) //функція, що робить всі літери в слові маленькими
+void all_lower(char *word) //функція, що робить всі літери в слові маленькими, приймає вказівник на початок масиву символів
 {
-    int i = 0;
-    while (*(word + i) != '\0')
+    int i = 0;                  //ініціалізація локальної змінної, щоб поелементно пройтись по всьому масиву
+    while (*(word + i) != '\0') //цикл відтворюється доти, доки поточний елемент не є закінченням рядка
     {
-        *(word + i) = tolower(*(word + i));
-        i++;
+        *(word + i) = tolower(*(word + i)); //присвоєння поточному елементу відповідної маленької літери
+        i++;                                //крок до наступного елемента масиву
     }
 }
 
-void show_scene(scene a)
+void show_scene(scene a) //функція виводу сцен у консоль, приймає структуру "сцена"
 {
-    //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
-    cout << "\033[2J\033[1;1H";
-    //Візуалізація написананого
-    printscene(a.landscape);
-
-    //Перевірка, чи є спікер в сцені
-    if (a.name != "\0")
+    cout << "\033[2J\033[1;1H"; //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
+    printscene(a.landscape);    //Візуалізація написананого
+    if (a.name != "\0")         //Перевірка, чи є спікер в сцені
     {
         poloska();
-        cout << a.name << endl;
+        cout << a.name << endl; //якщо спфкер в сцені, то вивести в консоль його ім'я
     }
-
     poloska();
     cout << a.text;
 }
 
-void poloska()
+void poloska() //функція виводу роздільної смуги в консоль
 {
     for (int i = 0; i < 80; i++)
     {
@@ -64,70 +59,37 @@ void poloska()
     }
 }
 
-void introduction()
+void introduction() //функція привітання з користувачем та ознайомлення з суттю гри
 {
-    string userAns;
+    string userAns; //ініціалізація рядка - відповіді користувача
 
-    cout << "You are about to play *назва гри*, custom version of MadLibs Game.";
+    cout << "Good afternoon, dear user!" << endl;
+    cout << "You are about to play *Crazy librarian*, custom version of MadLibs Game.";
     cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
 
-    if (userAns == "Y" || userAns == "y")
+    if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes")
     {
-        cout << "\n*назна гри* is a word game. You are asked for words to create \nyou own history ";
-        cout << "about your *придумати про що*" << endl;
+        cout << "\n**Crazy librarian* is a word game. You are asked for words to create \nyour own history ";
+        cout << "about your fidht against evil" << endl;
     }
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буфера
     cout << endl
          << endl;
 }
-void f_input(input *info)
+
+void f_input(input *info) //функція вводу доних від користувача, приймає посилання на структуру
 {
-    info->name = inp_name();
-    info->noun = inp_noun();
-    info->numeric = inp_numeric();
-    info->body = inp_part_of_the_body();
-    info->verb = inp_verb();
-}
-
-string inp_part_of_the_body()
-{
-    bool ind = 0;
-    char buf[SIZE];
-    ifstream f;
-    cout << "Input part of the body" << endl;
-    cin.getline(buf, SIZE);
-    do
-    {
-        f.open("parts_of_the_body.txt");
-        if (!f.is_open())
-        {
-            cout << "error opening file" << endl;
-        }
-
-        char p_o_t_b[99];
-        do
-        {
-            f >> p_o_t_b;
-        } while (strcmp(p_o_t_b, buf) != 0 && !f.eof() && (f.get() != '\0'));
-
-        if (strcmp(p_o_t_b, buf) != 0)
-        {
-            cout << "Not correct. Input part of the body" << endl;
-            cin.getline(buf, SIZE);
-            ind = 1;
-        }
-        else
-            (ind = 0);
-    } while (ind);
-    f.close();
-    all_lower(buf);
-    return string(buf);
+    info->name = inp_name();             //присвоєння члену структури введене користувачем ім'я при використанні функції вводу імені
+    info->noun = inp_noun();             //присвоєння члену структури введене користувачем іменника у множні при використанні функції
+    info->numeric = inp_numeric();       //присвоєння члену структури введене користувачем числа при використанні функції
+    info->body = inp_part_of_the_body(); //присвоєння члену структури введене користувачем частини тіла при використанні функції
+    info->verb = inp_verb();             //присвоєння члену структури введене користувачем дієслова при використанні функції
 }
 
 //Треба заборонити спецсимволи!!
-string inp_name()
+string inp_name() //функція вводу імені користувача, що повертає рядок
 {
     bool ind = 0;
     char buf[SIZE];
@@ -238,6 +200,41 @@ string inp_verb()
         {
             ind = 0;
         }
+    } while (ind);
+    f.close();
+    all_lower(buf);
+    return string(buf);
+}
+
+string inp_part_of_the_body()
+{
+    bool ind = 0;
+    char buf[SIZE];
+    ifstream f;
+    cout << "Input part of the body" << endl;
+    cin.getline(buf, SIZE);
+    do
+    {
+        f.open("parts_of_the_body.txt");
+        if (!f.is_open())
+        {
+            cout << "error opening file" << endl;
+        }
+
+        char p_o_t_b[99];
+        do
+        {
+            f >> p_o_t_b;
+        } while (strcmp(p_o_t_b, buf) != 0 && !f.eof() && (f.get() != '\0'));
+
+        if (strcmp(p_o_t_b, buf) != 0)
+        {
+            cout << "Not correct. Input part of the body" << endl;
+            cin.getline(buf, SIZE);
+            ind = 1;
+        }
+        else
+            (ind = 0);
     } while (ind);
     f.close();
     all_lower(buf);

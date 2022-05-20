@@ -23,7 +23,7 @@ int main()
         {
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Чистка буферу
         }
-        current++;
+        current++; //крок до наступної сцени
     }
     return 0;
 }
