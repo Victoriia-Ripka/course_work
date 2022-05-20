@@ -1,12 +1,14 @@
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <stdlib.h>
+#include <limits>
+#include <regex>
 #include "script.h" //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <fstream> // opening file in pitun_speak()
-#include <map>     //statetab map in pitun_speak()
-#include <vector>  //suffix in pitun_speak()
-#include <deque>   //prefix in pitun_speak()
-using namespace std;
+
 
 void introduction();           //функція привітання з користувачем та ознайомлення з суттю гри
 void show_scene(scene a);      //функція виводу сцен у консоль

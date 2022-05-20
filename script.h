@@ -105,8 +105,8 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
 
     (*(a+40)).set(2, "\0", info.name + " set out as a part of Powderbot's army on a campaign directly\nto the capital of Mordor - Belgorod."
 " Pitun was not ready for this, so came out\nto negotiate with Powderbot. He had known that a hetman, who came to him, \nis a real miser.");
-    (*(a+41)).set(12, "Pitun", " I give you a $1.000.000 and a chocolate factory in my capital, \nbut you give me Fayna Ukrayna");
-    (*(a+42)).set(12, "Powderbot", " Do you want a chocolate fig?");
+    (*(a+41)).set(12, "Pitun", "I give you a $1.000.000 and a chocolate factory in my capital, \nbut you give me Fayna Ukrayna");
+    (*(a+42)).set(12, "Powderbot", "Do you want a chocolate fig?");
     (*(a+43)).set(12, "Pitun", "Well, OK, $2.000.000.");
     (*(a+44)).set(12, "Powderbot", "Hmmm… It’s tempting. Take these two chocolate Santas, you’ll have ‘em.");
     (*(a+45)).set(12, "Pitun", pitun_speak(15+rand()%20));

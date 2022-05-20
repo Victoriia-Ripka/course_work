@@ -6,8 +6,7 @@
 
 #include "function.h" //підключення нашої бібліотеки зі всіма функціями
 
-int main()
-{
+int main(){
     scene script[N];
     input info; // структура для збереження даних, що вводить користувач
     //introduction(); // функція, що ознайомлює користувача з ідеєю гри
@@ -32,6 +31,5 @@ int main()
     } else {
         storytale(68, 85, script);
     }
-
     return 0;
 }
