@@ -101,32 +101,6 @@ string inp_name() //функція вводу імені користувача,
     }
     name[0] = toupper(name[0]); //оскільки це ім'я, то першу літеру зробити великою
     return name;       //повернути рядок, що був масивом символів
-    //bool ind = 0;   //ініціалізація локальної змінної для продовження цикла
-    //char buf[SIZE]; //ініціалізація масиву символів
-    // cout << "Input name" << endl;
-    // cin.getline(buf, SIZE); //ввід імені (масиву символів), максимальна кількість літер 99
-    // do                      //цикл з після умовою. продовжувати доти, доки ім'я не буде введено правильно
-    // {
-    //     if (strlen(buf)<3 || strlen(buf)>20){
-    //         cout << "Not correct. Input name" << endl;
-    //             cin.getline(buf, SIZE); //знову ввести ім'я
-    //             ind = 1;                //індикатор, що цикл продовжується
-    //         }
-    //     for (int i = 0; buf[i] != '\0'; i++) {                                             //ітераційний циклю посимвольна перевірка масиву на правильність вводу
-
-    //         if (!(isalpha(buf[i]))) //якщо ці умови виконуються,то ім'я введено неправильно
-    //         {
-    //             cout << "Not correct. Input name" << endl;
-    //             cin.getline(buf, SIZE); //знову ввести ім'я
-    //             ind = 1;                //індикатор, що цикл продовжується
-    //         }
-    //         else
-    //         {
-    //             ind = 0; //якщо всі умови не виконуються, то помилок при вводі імені не було. цикл зупиняється
-    //         }
-    //     }
-    // } while (ind);
-    //all_lower(name);           //зробити всі літери маленькими
 }
 
 string inp_noun() //функція вводу іменника у множині користувача, що повертає рядок
@@ -143,26 +117,6 @@ string inp_noun() //функція вводу іменника у множині
         getchar();
     }
     return noun;
-    // bool ind = 0; //логіка функції така сама, що і у функції inp_name()
-    // char buf[SIZE];
-    // cout << "Input noun in the plural" << endl;
-    // cin.getline(buf, SIZE);
-    // do
-    // {
-    //     for (int i = 0; buf[i] != '\0'; i++)
-    //         if (!((buf[strlen(buf) - 1] == 's' || (buf[strlen(buf) - 1] == 'S')) && isalpha(buf[i]))||(strlen(buf)<3 || strlen(buf)>20))
-    //         {
-    //             cout << "Not correct. Input noun in the plural" << endl;
-    //             cin.getline(buf, SIZE);
-    //             ind = 1;
-    //         }
-    //         else
-    //         {
-    //             ind = 0;
-    //         }
-    // } while (ind);
-    // all_lower(buf);
-    // return string(buf);
 }
 
 string inp_numeric() //функція вводу числа користувача, що повертає рядок
@@ -179,25 +133,6 @@ string inp_numeric() //функція вводу числа користувач
         getchar();
     }
     return number;
-    // bool ind = 0; //логіка функції така сама, що і у функції inp_name()
-    // char buf[SIZE];
-    // cout << "Input numeric (used numbers 0-9)" << endl;
-    // cin.getline(buf, SIZE);
-    // do
-    // {
-    //     for (int i = 0; buf[i] != '\0'; i++)
-    //         if (buf[i] < 48 || buf[i] > 57 || buf[0]=='\n' || strlen(buf)>10)
-    //         {
-    //             cout << "Not correct. Input numeric" << endl;
-    //             cin.getline(buf, SIZE);
-    //             ind = 1;
-    //         }
-    //         else
-    //         {
-    //             ind = 0;
-    //         }
-    // } while (ind);
-    // return string(buf);
 }
 
 string inp_verb() //функція вводу дієслова, що повертає рядок
