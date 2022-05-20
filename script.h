@@ -44,44 +44,44 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " He suspected the insidiousness of Pitun, as well as his envy of " + info.noun + ".");
 
     (*(a + 5)).set(5, "\0", "So he woke up with full awareness about what is happening. “He turned to its own again”, - he thought . "
-    "Shrek recomposed his bags, packed the Donkey, having an intention to leave for the neighboring Polandia . He realized in a moment"
+    +info.name+" recomposed his bags, packed the Donkey, having an intention to leave for the neighboring Polandia . He realized in a moment"
     " - all his life is here, he has nowhere to run, he is on his own land. "+info.name+" was faced with a choice that will change his life.");
     
     //тут має бути вибір 1) і 2)
     //якщо вибір 2 - з 6 по 9 проміжна сцена , якщо вибір 1 - перехід до 10 сцени
 
-    (*(a+6)).set(6, "A border guard of Polandia:", "– Your documents?");
-    (*(a+7)).set(6, info.name, "makes "+ info.verb +", pulls out a paper passport with a Trident");
+    (*(a+6)).set(6, "A border guard of Polandia:", "Your documents?");
+    (*(a+7)).set(6, info.name, "Makes "+ info.verb +", pulls out a paper passport with a Trident");
     (*(a+8)).set(6, "*The border guards among themselves*", "– Pszcężshęirzshicęshirzchżsi…\n"
     "– Pzcężhęirzcęshirzhżi… (something in Polandian)");
     (*(a+9)).set(6, "A border guard of Polandia:", " Come back home. We won’t pass you. You are more needed at home.");
 
-    (*(a+10)).set(7, "\0", "10.00 a.m.. Shrek came to Territorial Defense for asking to join the honorable TerDefense "
+    (*(a+10)).set(7, "\0", "10.00 a.m.. "+info.name+" came to Territorial Defense for asking to join the honorable TerDefense "
     "of Fayna Ukrayna under the command of his long-time school friend, a major Serhiy Prytula.");
-    (*(a+11)).set(8, "Serhiy Prytula" , " - Good morning, Shrek. Why did you come?");
-    (*(a+12)).set(8, info.name ,"- Hi. Em…. Why that?.., to defend my swamp, my friend Donkey and "+info.noun+", of course. All I have.");
-    (*(a+13)).set(8, "Serhiy Prytula","- We have already no places, all posts have long been occupied by others. For 1 automaton - 300 willings.");
-    (*(a+14)).set(8, info.name ,"- So how do I be now? What should I do?");
-    (*(a+15)).set(8, "Serhiy Prytula","- I can… so to say, due to our long-time friendship, I can take you as a squadron commander.");
-    (*(a+16)).set(8, info.name ," - Thank you, thank you!");
-    (*(a+17)).set(8, "Serhiy Prytula","- 1500 hryvnias and the place is yours.");
+    (*(a+11)).set(8, "Serhiy Prytula" , "Good morning, "+info.name+". Why did you come?");
+    (*(a+12)).set(8, info.name ,"Hi. Em…. Why that?.., to defend my swamp, my friend Donkey and "+info.noun+", of course. All I have.");
+    (*(a+13)).set(8, "Serhiy Prytula","We have already no places, all posts have long been occupied by others. For 1 automaton - 300 willings.");
+    (*(a+14)).set(8, info.name ,"So how do I be now? What should I do?");
+    (*(a+15)).set(8, "Serhiy Prytula","I can… so to say, due to our long-time friendship, I can take you as a squadron commander.");
+    (*(a+16)).set(8, info.name ,"Thank you, thank you!");
+    (*(a+17)).set(8, "Serhiy Prytula","1500 hryvnias and the place is yours.");
     (*(a+18)).set(8, info.name ,"- What…");
-    (*(a+19)).set(8, "\0" ,"Shrek takes out his wallet from a pocket and looks. There was "+ info.numeric +" hryvnias.");
+    (*(a+19)).set(8, "\0" ,info.name+" takes out his wallet from a pocket and looks. There was "+ info.numeric +" hryvnias.");
     
     // розвилка 1, де цифра менше за 1500 з 20ї сцена,
     //розвилка 2 де цифра більше за 1500 з 68ої сцени
 
-    (*(a+20)).set(8, info.name ,"- OMG, I don't have enough money…");
-    (*(a+21)).set(8, "Serhiy Prytula","- Welp, so I can’t help with anything. Go on.");
-    (*(a+22)).set(8, info.name ,"- Ok, I’ll go! I wish the duck to " + info.verb + " you!");
+    (*(a+20)).set(8, info.name ,"OMG, I don't have enough money…");
+    (*(a+21)).set(8, "Serhiy Prytula","Welp, so I can’t help with anything. Go on.");
+    (*(a+22)).set(8, info.name ,"Ok, I’ll go! I wish the duck to " + info.verb + " you!");
     
     (*(a+23)).set(9, "\0", "He went home again, lay down, and did not know what to do. The Donkey asks him: ");
-    (*(a+24)).set(9, "Donkey"," - What happened, dear friend?");
-    (*(a+25)).set(9, info.name ," - Damn Prytula, it turns out to be corrupt! He didn't take me to the terdefense.");
-    (*(a+26)).set(9, "Donkey","- Are you not fit enough for the army?");
-    (*(a+27)).set(9, info.name ," - Oh… sciatica, scoliosis, vision -3, who will accept me?");
-    (*(a+28)).set(9, "Donkey","- Why don't you go to the hetman Powderbot? Didn’t think about that?");
-    (*(a+29)).set(9, info.name ,"- WHAAAT?! To this potboiler?! Never!");
+    (*(a+24)).set(9, "Donkey","What happened, dear friend?");
+    (*(a+25)).set(9, info.name ,"Damn Prytula, it turns out to be corrupt! He didn't take me to the terdefense.");
+    (*(a+26)).set(9, "Donkey","Are you not fit enough for the army?");
+    (*(a+27)).set(9, info.name ,"Oh… sciatica, scoliosis, vision -3, who will accept me?");
+    (*(a+28)).set(9, "Donkey","Why don't you go to the hetman Powderbot? Didn’t think about that?");
+    (*(a+29)).set(9, info.name ,"WHAAAT?! To this potboiler?! Never!");
     (*(a+30)).set(9, "Donkey","But he will give you a weapon, and will give you ammunition. And when the moment will appear -"
     " it is possible to run away. Think about it.");
     (*(a+31)).set(9, "\0", "Shrek thought it over very thoroughly.");
@@ -104,13 +104,12 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " which is able to burn Mordor out, even twice!");
 
     (*(a+40)).set(2, "\0", "Shrek set out as a part of Powderbot's army on a campaign directly to the capital of Mordor - Belgorod."
-    " Pitun was not ready for this, so came out to negotiate with Powderbot. He had known that a hetman, who came to him, is a real miser.");
-
+" Pitun was not ready for this, so came out to negotiate with Powderbot. He had known that a hetman, who came to him, is a real miser.");
     (*(a+41)).set(12, "Pitun", " - I give you a $1.000.000 and a chocolate factory in my capital, but you give me Fayna Ukrayna");
     (*(a+42)).set(12, "Powderbot", " - Do you want a chocolate fig?");
     (*(a+43)).set(12, "Pitun", "- Well, OK, $2.000.000.");
     (*(a+44)).set(12, "Powderbot", "- Hmmm… It’s tempting. Take these two chocolate Santas, you’ll have ‘em.");
-    (*(a+45)).set(12, "Pitun", pitun_speak(SIZE));
+    (*(a+45)).set(12, "Pitun", pitun_speak(SIZE/4));
 
     (*(a+46)).set(13, "\0", "Out of anger, he took out a cannon and started firing at Powderbot. With a well-aimed shot Pitun hit straight"
     " at his " + info.body + ". Shrek was overwhelmed with rage. He saw this horror through the window in the negotiating room and "
@@ -144,9 +143,9 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " by the long shadows of washing machines and curling irons stolen by the Pitun’s army.");
     (*(a+59)).set(16, "Fiona", " - Take Javelins out! Everyone, get ready!");
     (*(a+60)).set(16, info.name, " - OMG, you even have this?!");
-    (*(a+61)).set(16, "Pitun", pitun_speak(SIZE));
+    (*(a+61)).set(16, "Pitun", pitun_speak(SIZE/4));
     (*(a+62)).set(16, "Fiona", "- On combat positions! Aim!... Fire!");
-    (*(a+63)).set(16, "Pitun", pitun_speak(SIZE));
+    (*(a+63)).set(16, "Pitun", pitun_speak(SIZE/4));
     (*(a+64)).set(16, "\n", "Realizing the deplorable situation, Pitun began to flee from the positions, sacrificing his army for his own life. Shrek started the chase.");
 
 
@@ -169,11 +168,11 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+73)).set(20, info.name , "“How dare you say that about my Fatherland?!” - he thought and filled himself with rage.");
     (*(a+74)).set(20, "\0", "As soon as Pitun approached the glorious swamp, Shrek jumped out of the trench, bent his arms and put the automaton to the temple.");
     (*(a+75)).set(21, info.name, " - Well, here you are, our not-sweet lad.");
-    (*(a+76)).set(21, "Pitun", pitun_speak(int(SIZE/2)) + " - that one turned to its own again.");
+    (*(a+76)).set(21, "Pitun", pitun_speak(int(SIZE/4)) + " - that one turned to its own again.");
     (*(a+77)).set(21, info.name, " - So, you scoundrel, the conversation with you will be short. You wanted " + info.noun + " and " + info.body + " A fig"
     " with poppy to you! You will get what you deserve.");
     (*(a+78)).set(21, info.name, "-  Tell your troops to pierce their " + info.body + " with knives. Quickly!");
-    (*(a+79)).set(21, "Pitun", pitun_speak(int(SIZE/2)) + " - like doesn’t know any other words.");
+    (*(a+79)).set(21, "Pitun", pitun_speak(int(SIZE/4)) + " - like doesn’t know any other words.");
     (*(a+80)).set(21, "Shrek's soldiers", "- So, we’ll do it by ourselves");
     (*(a+81)).set(21, "\0", "\n\n*this scene was cut off for the purposes of censorship*");
     (*(a+82)).set(22, "\0", "Shrek protected his swamp and his lair, and didn’t give " + info.noun + ". In gratitude to the soldiers"
@@ -181,5 +180,4 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+83)).set(22, "\0", "He sold the obtained " + info.body + " and earned a lot of money on it. God took away, God thanked. 15000 of dollars were now heating in his wallet and a souvenir - Pitun's canned head, which always bubbled under the nose strange random phrases like.");
     (*(a+84)).set(22, "\0", "Shrek received a medal “For Courage“ from the President of Fayna Ukrayna, put an end to universal evil,"
     " and lived long and happily in his swamp.");
-
 }
