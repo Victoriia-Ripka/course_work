@@ -24,6 +24,7 @@ was
 were
 been
 is
+are
 being
 bear
 bore
@@ -362,6 +363,10 @@ interlaid
 interlaid
 interlays
 interlaying
+jump
+jumped
+jumps
+jumping
 keep
 kept
 keeps

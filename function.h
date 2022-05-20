@@ -37,7 +37,7 @@ void is_part_of_the_body(char body[SIZE]);
 void is_verb(char verb[SIZE]);
 void all_lower(char* word);
 
-//Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
+//Генерує n випадкових слів тіпа денаціцифакція, біолабораторії та інші скрєпні речі
 string pitun_speak(int nwords);
 
 void scene::set(int ls, string n, string t){
@@ -56,7 +56,7 @@ void all_lower(char* word){
 
 
 void show_scene(scene a){
-    //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
+    //Переводить курсор в лівий верхній кут, тіп створює новий слайд
     cout << "\033[2J\033[1;1H";
     //Візуалізація написананого
     printscene(a.landscape);
@@ -82,17 +82,17 @@ void introduction()
     string userAns;
 
     cout << "You are about to play *назва гри*, custom version of MadLibs Game.";
-    cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
+    cout << "If you need game instructions enter \"Y\" or \"+\". Otherwise, enter whatever: " << endl;
     cin >> userAns;
     
-    if(userAns == "Y" || userAns == "y")
+    if(userAns == "Y" || userAns == "y" || userAns == "Т" || userAns == "т" || userAns == "+")
     {
         cout << "\n*назна гри* is a word game. You are asked for words to create \nyou own history ";
         cout << "about your *придумати про що*" << endl;
     }
     
     cin.ignore(numeric_limits<streamsize>::max(), '\n');//Очистка буфера
-    cout << endl << endl;
+    cout << "\n\n";
 }
 
 void f_input(input* info){
@@ -133,7 +133,7 @@ void inp_name(string name){
 
 void is_name(char name[SIZE]){
     for (int i = 0; name[i] != '\0'; i++)
-        if (!(isupper(name[0]) && isalpha(name[i]))  || name[1] == '\0' || name[0] == '\0')
+        if (!(isupper(name[0]) && isalpha(name[i])) || name[2] == '\0' || name[1] == '\0' || name[0] == '\0') // мінімум 3 символи, перший - великий
         {
             cout << "Not correct. Input name" << endl;
             cin.getline(name, SIZE);
@@ -278,7 +278,7 @@ void add(Prefix& prefix, const string& s){
 void build(Prefix& prefix/*, istream& in*/) {
 	string buf;
 	ifstream textfile;
-	textfile.open("kubliy.txt");
+	textfile.open("pitun.txt");
 	if(!textfile.is_open()){
 		cout << "Error: cannot open pitun.txt file" << endl; 
 		return;

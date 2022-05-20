@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include <stdlib.h>
+#include <cstdlib>
 #include <limits>
 
 #define N 22 //Кількість сцен //сумніваюсь що треба клк сцен через дефайн
