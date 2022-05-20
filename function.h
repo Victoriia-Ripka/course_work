@@ -265,6 +265,32 @@ bool choice_f(){//Функція вибору сюжету історії
     }
 }
 
+bool choice_s(){//Функція вибору сюжету історії
+    char ans;
+    //Вивід варіантів вибору
+    cout << "\n1)Goes to hetman\n2)Takes a Donkey and goes to a guerilla warfare\n Your choice: ";
+    for(;;){
+        ans = getchar();
+    if (ans != '\n'){              //очікування на "команду продовження"
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');}//Чистка буферу
+    switch (ans) //Перевірка на правильність вводу
+    {
+    case '1':
+    cout << "\nChoiced goes to hetman";
+    return 1;
+        break;
+    case '2':
+    cout << "\nChoiced takes a Donkey and goes to a guerilla warfare";
+    return 0;
+        break;
+    default:
+    //Ввід неправильний, користувач спробує знову
+    cout <<"Nor correct. Input 1 or 2: ";
+        break;;
+    };
+    }
+}
+
 void answer(){
     if (getchar()!= '\n'){              //очікування на "команду продовження"
     cin.ignore(numeric_limits<streamsize>::max(), '\n');}//Чистка буферу
