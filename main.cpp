@@ -6,12 +6,11 @@
 
 #include "function.h" //підключення нашої бібліотеки зі всіма функціями
 
-
 int main()
 {
     scene script[N];
-    input info;     // структура для збереження даних, що вводить користувач 
-    //introduction(); // функція, що ознайомлює користувача з ідеєю гри
+    input info; // структура для збереження даних, що вводить користувач
+    // introduction(); // функція, що ознайомлює користувача з ідеєю гри
     f_input(&info); // функція вводу даних користоувачем
     cut_paste(info, &script[0]);
     cout <<"Name: "<< info.name << " " << info.noun << " " << info.numeric << " " << info.body << " " << info.verb << endl;
