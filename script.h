@@ -19,9 +19,8 @@ public:
 string pitun_speak(int nwords); // прототип функції генерації пітуна
 
 
-void cut_paste(input info, scene *a) //функція виводу реплік, яка приймає структуру даних, що ввів користувач і посилання на поточну сцену
+void cut_paste(input info, scene *a) //функція виводу реплік, яка приймає структуру даних, що ввів користувач, і посилання на поточну сцену
 {
-    //string temp; //ініціалізаця рядка, який буде виводитися на екран. При виводі в консоль буде містити потрібне слово
     
     (*a).set(1, "\0", info.name +" had been living in his lair in a swamp. His life wasn't beautiful,\n"
     "but that one wasn't complaining. Lived quietly, enjoyed morning's aromas\nof swamp, frog's croaks, which didn't "
