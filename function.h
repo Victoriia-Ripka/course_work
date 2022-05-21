@@ -267,7 +267,7 @@ void all_lower(char *word) //функція, що робить всі літер
 bool choice_f(){//Функція вибору сюжету історії
     char ans;
     //Вивід варіантів вибору
-    cout << "\n1)To come to Territorial Defense\n2)To leave abroad to Polandia.\n Your choice: ";
+    cout << "\n1) To come to Territorial Defense\n2) To leave abroad to Polandia.\n\tYour choice: ";
     for(;;){
         ans = getchar();
     if (ans != '\n'){              //очікування на "команду продовження"
