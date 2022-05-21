@@ -3,7 +3,7 @@
 int main() {
     scene script[N]; // масив сцен
     input info; // об'єкт структури для збереження даних, що вводить користувач
-
+    clock_t start = clock(), finish;
     intro(); // функція, що ознайомлює користувача з ідеєю гри
     
     do { // зациклюємо програму
@@ -28,7 +28,9 @@ int main() {
         } else {
             storytale(68, 85, script);
         }
+        finish = clock();
         outro(); // функція з "титрами"
+        technical_report(start, finish);
     } while (loop() == true);
     return 0;
 }

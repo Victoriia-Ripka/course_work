@@ -6,6 +6,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
+#include <ctime>
 
 #include "script.h"                 //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 
@@ -27,8 +28,10 @@ bool choice_s();                    //функція вибору сюжету �
 string pitun_speak(int nwords);     //функція, що генерує n випадкових слів типу денацифікація, біолабораторії та інші "скрєпні" речі
 void answer();                      //функція продовження
 bool loop();                        //функція зациклення
+void technical_report(clock_t s, clock_t f);     //функція технічного звіту
 void storytale(int i1, int i2, scene script[N]); //функція, що виводить сюжетний блок "слайдів"
 
+int counter; //лічильник
 //Функція класу scene(сцена)
 //Функція з вхідних даних генерує схему ("склеює окремі стрінги і число в сцену")
 void scene::set(int ls, string n, string t)
@@ -40,6 +43,8 @@ void scene::set(int ls, string n, string t)
 
 void intro() //функція привітання з користувачем та ознайомлення з суттю гри
 {
+    counter = 0;
+
     string userAns; //ініціалізація рядка - відповіді користувача
 
     cout << endl << "Hello, dear user!" << endl;
@@ -47,9 +52,11 @@ void intro() //функція привітання з користувачем �
     cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
     cout << "The script of a history if fully unique.\n\n";
     cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else: " << endl;
+    counter++;
 
     cin >> userAns;
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
+    counter++;
     if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "ye" || userAns == "yea" ||
     userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "та" || userAns == "Та" ||
     userAns == "Так" || userAns == "так" || userAns == "Да" || userAns == "да" || userAns == "+")
@@ -135,6 +142,7 @@ string inp_name() //функція вводу імені користувача,
     string name;
     cout << endl << "Input name:" << endl;
     cin >> name;
+    counter++;
     getchar();
     while (!regex_match(name, r) || name.length()<3 || name.length()>20)
     {
@@ -157,6 +165,7 @@ string inp_noun() //функція вводу іменника у множині
     string noun;
     cout << endl << "Input noun in the plural:" << endl;
     cin >> noun;
+    counter++;
     getchar();
     while (!regex_match(noun, r) || noun.length()<3 || noun.length()>20 || (noun.back() != 's' && noun.back() !='S'))
     {
@@ -181,6 +190,7 @@ string inp_numeric() //функція вводу числа користувач
     string number;
     cout << endl << "Input number:" << endl;
     cin >> number;
+    counter++;
     getchar();
     while (!regex_match(number, r) || number.length()>10)
     {
@@ -203,6 +213,7 @@ string inp_verb() //функція вводу дієслова, що повер�
     ifstream f;     //ініціалізація файла
     cout << endl << "Input verb:" << endl;
     cin.getline(buf, SIZE);            //ввід дієслова (масиву символів), максимальна кількість літер 99
+    counter++;
     all_lower(buf);     //перетворення всіх літер на маленькі
     char d_o_v[SIZE];                  //ініціалізація рядка символів
         do //цикл з пісялумовою. виконується доки користувач не введе правильно дієслово
@@ -243,6 +254,7 @@ string inp_part_of_the_body() //функція вводу частини тіл�
     ifstream f;
     cout << endl << "Input part of the body:" << endl;
     cin.getline(buf, SIZE);
+    counter++;
     all_lower(buf);     //перетворення всіх літер на маленькі   
         char p_o_t_b[SIZE];
         do
@@ -285,6 +297,7 @@ bool choice_f(){//Функція вибору сюжету історії
     char ans;
     //Вивід варіантів вибору
     cout << "\n1) To come to Territorial Defense\n2) To leave abroad to Polandia.\n\tYour choice: ";
+    counter++;
     for(;;){
         ans = getchar();
     if (ans != '\n'){              //очікування на "команду продовження"
@@ -301,7 +314,7 @@ bool choice_f(){//Функція вибору сюжету історії
         break;
     default:
     //Ввід неправильний, користувач спробує знову
-    cout <<"Nor correct. Input 1 or 2: ";
+    cout <<"Not correct. Input 1 or 2: ";
         break;
     };
     }
@@ -311,6 +324,7 @@ bool choice_s(){//Функція вибору сюжету історії
     char ans;
     //Вивід варіантів вибору
     cout << "\n1) Go to hetman\n2) Take a Donkey and have a guerilla warfare.\n\tYour choice: ";
+    counter++;
     for(;;){
         ans = getchar();
     if (ans != '\n'){              //очікування на "команду продовження"
@@ -334,9 +348,11 @@ bool choice_s(){//Функція вибору сюжету історії
 }
 
 void answer() {
-    if (getchar()!= '\n'){              //очікування на "команду продовження"
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');}//Чистка буферу
+    counter++;
+    if (getchar()!= '\n') {              //очікування на "команду продовження"
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Чистка буферу
     }
+}
 
 
 void storytale(int i1, int i2, scene script[N]) { //функція, що виводить сюжетний блок "слайдів"
@@ -347,10 +363,15 @@ void storytale(int i1, int i2, scene script[N]) { //функція, що вив�
     }
 }
 
+void technical_report(clock_t s, clock_t f) {
+    counter++;
+    cout << "\033[2J\033[1;1H"; //обновлення екрану, новий "слайд"
+    cout << "Technical report:\nCouter of user's moves: " << counter << "\nElapsed time: " << ((double)(f-s))/CLOCKS_PER_SEC << "\n\n";
+}
+
 bool loop() { //функція зациклення
     string cont;
-
-    cout << "\033[2J\033[1;1H"; //обновлення екрану, новий "слайд"
+    
     cout << "Do you wanna play one more time? Please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else:" << endl;
     cin >> cont;
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
@@ -386,7 +407,7 @@ map<Prefix, vector<string>> statetab;
 
 enum
 {
-    NPREF = 1,    //кількість елементів у контейнері префіксу  || 1 - тотал рандом,
+    NPREF = 2,    //кількість елементів у контейнері префіксу  || 1 - тотал рандом,
                   // 3 - треба велику базу щоб тупо не копіювало файлик
     NHASH = 1000, // 4093, size of state hash table array ((чесно без поняття, у шпури таке було я й написав))
     MAXGEN = 100  //ліміт генерованих слів
