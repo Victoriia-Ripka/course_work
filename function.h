@@ -10,7 +10,6 @@
 #include "script.h"                 //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 
 
-
 void intro();                       //функція привітання з користувачем та ознайомлення з суттю гри
 void outro();                       //функція з "титрами"
 void centerstring(char const *s);   //функція центрування рядка             
@@ -46,15 +45,18 @@ void intro() //функція привітання з користувачем �
     cout << "You are about to play Crazy Librarian, custom version of MadLibs Game.\n\n";
     cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
     cout << "The script of a history if fully unique.\n\n";
-    cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever: " << endl;
+    cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else: " << endl;
+    
     cin >> userAns;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');//Чистка буферу
-    if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "Т" || userAns == "т" || userAns == "Так" || userAns == "так" || userAns == "+")
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
+    if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "ye" || userAns == "yea" ||
+    userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "та" || userAns == "Та" ||
+    userAns == "Так" || userAns == "так" || userAns == "да" || userAns == "Да" || userAns == "+")
     {
         cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
         cout << "about your fight against evil. Press enter." << endl;
     }
-    else return; // щоб користувач не натискав ентер два рази після уведення символа
+    else return; //щоб користувач не натискав ентер два рази після уведення символа
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буфера
 }
