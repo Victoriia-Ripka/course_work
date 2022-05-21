@@ -9,7 +9,7 @@
 int main(){
     scene script[N];
     input info; // структура для збереження даних, що вводить користувач
-    //intro(); // функція, що ознайомлює користувача з ідеєю гри
+    intro(); // функція, що ознайомлює користувача з ідеєю гри
     f_input(&info); // функція вводу даних користоувачем
     cut_paste(info, &script[0]);
 
@@ -31,6 +31,6 @@ int main(){
     } else {
         storytale(68, 85, script);
     }
-    //outro();
+    outro();
     return 0;
 }
