@@ -1,11 +1,9 @@
 #include <iostream>
-#include <fstream>
 #include <cstring>
 #include <stdlib.h>
 #include <limits>
 #include <regex>
 #include "script.h" //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
-#include <iostream>
 #include <string>
 #include <cstdlib>
 
