@@ -293,7 +293,7 @@ bool choice_f(){//Функція вибору сюжету історії
 bool choice_s(){//Функція вибору сюжету історії
     char ans;
     //Вивід варіантів вибору
-    cout << "\n1)Goes to hetman\n2)Takes a Donkey and goes to a guerilla warfare\n Your choice: ";
+    cout << "\n1) Go to hetman\n2) Take a Donkey and have a guerilla warfare.\n\tYour choice: ";
     for(;;){
         ans = getchar();
     if (ans != '\n'){              //очікування на "команду продовження"

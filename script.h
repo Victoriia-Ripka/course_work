@@ -75,9 +75,9 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+21)).set(8, "Serhiy Prytula","Welp, so I can't help with anything. Go on.");
     (*(a+22)).set(8, info.name ,"Ok, I'll go! I wish the duck to " + info.verb + " you!");
     
-    (*(a+23)).set(9, "\0", "He went home again, lay down, and did not know what to do.\nThe Donkey asks him: ");
+    (*(a+23)).set(9, "\0", "He went home again, lay down and did not know what to do.\nThe Donkey asks him:");
     (*(a+24)).set(9, "Donkey","What happened, dear friend?");
-    (*(a+25)).set(9, info.name ,"Damn Prytula, it turns out to be corrupt! He didn't take me to the terdefense.");
+    (*(a+25)).set(9, info.name ,"Damn Prytula, it turns out to be corrupt! He didn't take me to the TerDefense.");
     (*(a+26)).set(9, "Donkey","Are you not fit enough for the army?");
     (*(a+27)).set(9, info.name ,"Oh… sciatica, scoliosis, vision -3, who will accept me?");
     (*(a+28)).set(9, "Donkey","Why don't you go to the hetman Powderbot? Didn't think about that?");
@@ -91,34 +91,34 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
 
     (*(a+32)).set(10, "\0", info.name + " came to the insidious hetman Powderbot and asked to join his army.");
     (*(a+33)).set(10, info.name, " Take me, Mr. Powderbot. I want to kill Pitun.");
-    (*(a+34)).set(10, "Mr. Powderbot", "You don't fit, " + info.name + ". You have no experience. ");
-    (*(a+35)).set(10, info.name, "During your cadence, I fought for 5 years as a member of \nthe 69th Motorized Rifle Brigade."
+    (*(a+34)).set(10, "Mr. Powderbot", "You don't fit, " + info.name + ". You have no experience.");
+    (*(a+35)).set(10, info.name, "During your cadence, I fought for 5 years as a member of the 69th Motorized\nRifle Brigade."
     " That's not true, I have experience.");
     (*(a+36)).set(10, "Mr. Powderbot", "Really?");
-    (*(a+37)).set(10, info.name, " I have the honor to say, Mister.");
-    (*(a+38)).set(10, "\0", info.name + " lied brazenly, but for noble motives.\n"
-    "Powderbot immediately figured out the plan of the cunning " + info.name + ",\nbut he liked the cossack, so he left with him to his base.");
+    (*(a+37)).set(10, info.name, "I have the honor to say, Mr.");
+    (*(a+38)).set(10, "\0", info.name + " lied brazenly, but for noble motives."
+    " Powderbot immediately figured out\nthe plan of the cunning " + info.name + ", but he liked the cossack,\nso he left with him in his base.");
 
-    (*(a+39)).set(11, "\0", info.name + " got an equipment, an accessoire for the " + info.body + "\nspecially as a present from Powderbot,"
-    " as a sign of his love. During the\npreparation for the fight in a castle of Powderbot, a spark between them\ngrew out in a flame,"
+    (*(a+39)).set(11, "\0", info.name + " got an equipment, an accessoire for the " + info.body + " specially as a present\nfrom Powderbot,"
+    " as a sign of his love. During the preparation for\nthe fight in a castle of Powderbot, a spark between them grew out in\na flame,"
     " which is able to burn Mordor out, even twice!");
 
-    (*(a+40)).set(2, "\0", info.name + " set out as a part of Powderbot's army on a campaign directly\nto the capital of Mordor - Belgorod."
+    (*(a+40)).set(2, "\0", info.name + " set out as a part of Powderbot's army on a campaign directly to the\ncapital of Mordor - Belgorod."
 " Pitun was not ready for this, so came out\nto negotiate with Powderbot. He had known that a hetman, who came to him, \nis a real miser.");
-    (*(a+41)).set(12, "Pitun", "I give you a $1.000.000 and a chocolate factory in my capital, \nbut you give me Fayna Ukrayna");
+    (*(a+41)).set(12, "Pitun", "I give you a $1.000.000 and a chocolate factory in my capital, but you\ngive me Fayna Ukrayna");
     (*(a+42)).set(12, "Powderbot", "Do you want a chocolate fig?");
     (*(a+43)).set(12, "Pitun", "Well, OK, $2.000.000.");
-    (*(a+44)).set(12, "Powderbot", "Hmmm… It's tempting. Take these two chocolate Santas, you'll have ‘em.");
-    (*(a+45)).set(12, "Pitun", pitun_speak(15+rand()%20));
+    (*(a+44)).set(12, "Powderbot", "Hmmm… It's tempting. Take these two chocolate Santas, you'll have 'em.");
+    (*(a+45)).set(12, "Pitun", pitun_speak(15+rand()%20) + "…");
 
     (*(a+46)).set(13, "\0", "Out of anger, he took out a cannon and started firing at Powderbot. \nWith a well-aimed shot Pitun hit straight"
     " at his " + info.body + ". \n" + info.name + " was overwhelmed with rage. He saw this horror through\nthe window in the negotiating room and "
     "wanted revenge for his beloved.");
     (*(a+46)).set(13, "\0", "Jumping into the same window, he grabbed Pitun from behind and cut off his \nthroat. A lot of " + info.noun +
-    "were lying on the table in the room.\n" + info.name + "fell into a stupor. “This would save his life.” - he thought.");
+    " were lying on the table in the room. " + info.name + " fell into\na stupor. \"This would save his life!\" - he thought.");
 
-    (*(a+47)).set(14,"\0", "Seeing this, Powderbot resurrected. Universal good has defeated universal evil,\nand " + info.name + " moved to Powderbot "
-    "to live on the estate, co-owning financial\nwealth of " + info.numeric + " thousands of hryvnias.");
+    (*(a+47)).set(14,"\0", "Seeing this, Powderbot resurrected. Universal good has defeated universal\nevil, and " + info.name + " moved to Powderbot "
+    "to live on the estate, co-owning\nfinancial wealth of " + info.numeric + "0 thousands of hryvnias.");
 
     // вибір 2, продовження після 31ої сцени
 
