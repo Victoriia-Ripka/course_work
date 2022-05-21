@@ -46,7 +46,7 @@ void intro() //функція привітання з користувачем �
     cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
     cout << "The script of a history if fully unique.\n\n";
     cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else: " << endl;
-    
+
     cin >> userAns;
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
     if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "ye" || userAns == "yea" ||
@@ -132,12 +132,17 @@ string inp_name() //функція вводу імені користувача,
 {
     regex r("[A-Za-z]*");
     string name;
-    cout << endl << "Input name" << endl;
+    cout << endl << "Input name:" << endl;
     cin >> name;
     getchar();
     while (!regex_match(name, r) || name.length()<3 || name.length()>20)
     {
-        cout << "Not correct. Input name" << endl;
+        if (!regex_match(name, r)) {
+            cout << "Not correct. Input name:" << endl;
+        }
+        else {
+            cout << "The name is too short or too long. Input name:" << endl;
+        }
         cin >> name;
         getchar();
     }
@@ -149,12 +154,20 @@ string inp_noun() //функція вводу іменника у множині
 {
     regex r("[A-Za-z]*");
     string noun;
-    cout << endl << "Input noun in the plural" << endl;
+    cout << endl << "Input noun in the plural:" << endl;
     cin >> noun;
     getchar();
     while (!regex_match(noun, r) || noun.length()<3 || noun.length()>20 || (noun.back() != 's' && noun.back() !='S'))
     {
-        cout << "Not correct. Input noun in the plural" << endl;
+        if (!regex_match(noun, r)) {
+            cout << "Not correct. Input noun in the plural:" << endl;
+        }
+        else if (noun.back() != 's' && noun.back() !='S') {
+            cout << "Inputted noun is not in plural. Input noun in the plural:" << endl;
+        }
+        else {
+            cout << "Inputted noun is too short or too long. Input noun in the plural:" << endl;
+        }
         cin >> noun;
         getchar();
     }
@@ -165,12 +178,17 @@ string inp_numeric() //функція вводу числа користувач
 {   
     regex r("[0-9]*");
     string number;
-    cout << endl << "Input number" << endl;
+    cout << endl << "Input number:" << endl;
     cin >> number;
     getchar();
     while (!regex_match(number, r) || number.length()>10)
     {
-        cout << "Not correct. Input number" << endl;
+        if (!regex_match(number, r)) {
+            cout << "Not correct. Input number:" << endl;
+        }
+        else {
+            cout << "The number is too long. Input number:" << endl;
+        }
         cin >> number;
         getchar();
     }
@@ -182,7 +200,7 @@ string inp_verb() //функція вводу дієслова, що повер�
     bool ind = 0;   //ініціалізація локальної змінної для продовження цикла
     char buf[SIZE]; //ініціалізація масиву символів
     ifstream f;     //ініціалізація файла
-    cout << endl << "Input verb" << endl;
+    cout << endl << "Input verb:" << endl;
     cin.getline(buf, SIZE);            //ввід дієслова (масиву символів), максимальна кількість літер 99
     all_lower(buf);     //перетворення всіх літер на маленькі
     char d_o_v[SIZE];                  //ініціалізація рядка символів
@@ -203,7 +221,7 @@ string inp_verb() //функція вводу дієслова, що повер�
 
             if (strcmp(d_o_v, buf) != 0) //якщо збіг не виявлено, то користувач зновву вводить дієслово
             {
-                cout << "Not correct. Input verb" << endl;
+                cout << "Not correct. Input verb:" << endl;
                 cin.getline(buf, SIZE);
                 all_lower(buf);     //перетворення всіх літер на маленькі
                 ind = 1; //індикатор 1, тобто цикл продовжується
@@ -222,7 +240,7 @@ string inp_part_of_the_body() //функція вводу частини тіл�
     bool ind = 0; //логіка функції така сама, що і у функції inp_verb()
     char buf[SIZE];
     ifstream f;
-    cout << endl << "Input part of the body" << endl;
+    cout << endl << "Input part of the body:" << endl;
     cin.getline(buf, SIZE);
     all_lower(buf);     //перетворення всіх літер на маленькі   
         char p_o_t_b[SIZE];
@@ -240,7 +258,7 @@ string inp_part_of_the_body() //функція вводу частини тіл�
                 f >> p_o_t_b;
             } while ((strcmp(p_o_t_b, buf) != 0) && !f.eof() && (f.get() != '\0'));
             if (strcmp(p_o_t_b, buf) != 0){
-                cout << "Not correct. Input part of the body" << endl;
+                cout << "Not correct. Input part of the body:" << endl;
                 cin.getline(buf, SIZE);
                 all_lower(buf);     //перетворення всіх літер на маленькі
                 ind = 1;
