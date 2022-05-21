@@ -30,7 +30,7 @@ bool choice_s();                    //функція вибору сюжету �
 string pitun_speak(int nwords);     //функція, що генерує n випадкових слів типу денацифікація, біолабораторії та інші "скрєпні" речі
 void answer();                      //функція продовження
 bool loop();                        //функція зациклення
-void technical_report(high_resolution_clock::time_point time1, high_resolution_clock::time_point time2);     //функція технічного звіту
+void technical_report(high_resolution_clock::time_point time1, high_resolution_clock::time_point time2); //функція технічного звіту
 void storytale(int i1, int i2, scene script[N]); //функція, що виводить сюжетний блок "слайдів"
 
 int counter; //лічильник
@@ -60,7 +60,7 @@ void intro() //функція привітання з користувачем �
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
     counter++;
     if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "ye" || userAns == "yea" ||
-    userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "та" || userAns == "Та" ||
+    userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "Та" || userAns == "та" ||
     userAns == "Так" || userAns == "так" || userAns == "Да" || userAns == "да" || userAns == "+")
     {
         cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
@@ -74,10 +74,10 @@ void intro() //функція привітання з користувачем �
 void centerstring(char const *s) {
     int length=strlen(s);
     int pos=(int)((80-length)/2);
-    for(int i=0;i<pos;i++) {
+    for(int i = 0; i < pos; i++) {
         cout<<" ";
     }
-    cout<<s;
+    cout << s;
 }
 
 void outro() //функція з "титрами"
@@ -100,7 +100,7 @@ void outro() //функція з "титрами"
     cout << endl << endl;
     centerstring("Produced in Ukraine");
     cout << endl;
-    centerstring("2022");
+    centerstring("KPI, 2022");
     for (int i=0; i<7; i++) {
         cout << endl;
     }
@@ -330,7 +330,7 @@ bool choice_s(){//Функція вибору сюжету історії
     for(;;){
         ans = getchar();
     if (ans != '\n'){              //очікування на "команду продовження"
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');}//Чистка буферу
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); } //Чистка буферу
     switch (ans) //Перевірка на правильність вводу
     {
     case '1':
@@ -367,10 +367,10 @@ void storytale(int i1, int i2, scene script[N]) { //функція, що вив�
 
 void technical_report(high_resolution_clock::time_point time1, high_resolution_clock::time_point time2) {
     counter++;
-    auto duration = duration_cast<microseconds>( time2 - time1 ).count();
+    auto duration = duration_cast<seconds>( time2 - time1 ).count();
     //double time = ((double)(f-s))/CLOCKS_PER_SEC;
     cout << "\033[2J\033[1;1H"; //обновлення екрану, новий "слайд"
-    cout << "Technical report:\nCouter of user's moves: " << counter << "\nElapsed time: " << duration << "\n\n";
+    cout << "Technical report:\nNumber of user's moves: " << counter << "\nElapsed time: " << duration << " seconds\n\n";
 }
 
 bool loop() { //функція зациклення
@@ -381,7 +381,7 @@ bool loop() { //функція зациклення
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
 
     if (cont == "Y" || cont == "y" || cont == "yes" || cont == "Yes" || cont == "ye" || cont == "yea" ||
-    cont == "yeah" || cont == "Yeah" || cont == "Т" || cont == "т" || cont == "та" || cont == "Та" ||
+    cont == "yeah" || cont == "Yeah" || cont == "Т" || cont == "т" || cont == "Та" || cont == "та" ||
     cont == "Так" || cont == "так" || cont == "Да" || cont == "да" || cont == "+") {
         return true;
     }
