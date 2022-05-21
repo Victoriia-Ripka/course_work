@@ -97,10 +97,10 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+36)).set(10, "Mr. Powderbot", "Really?");
     (*(a+37)).set(10, info.name, "I have the honor to say, Mr.");
     (*(a+38)).set(10, "\0", info.name + " lied brazenly, but for noble motives."
-    " Powderbot immediately figured out\nthe plan of the cunning " + info.name + ", but he liked the cossack,\nso he left with him in his base.");
+    " Powderbot immediately figured\nout the plan of the cunning " + info.name + ", but he liked the cossack, so he\nleft with him in his base.");
 
     (*(a+39)).set(11, "\0", info.name + " got an equipment, an accessoire for the " + info.body + " specially as a present\nfrom Powderbot,"
-    " as a sign of his love. During the preparation for\nthe fight in a castle of Powderbot, a spark between them grew out in\na flame,"
+    " as a sign of his love. During the preparation for the\nfight in a castle of Powderbot, a spark between them grew out in\na flame,"
     " which is able to burn Mordor out, even twice!");
 
     (*(a+40)).set(2, "\0", info.name + " set out as a part of Powderbot's army on a campaign directly to the\ncapital of Mordor - Belgorod."
@@ -126,23 +126,23 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " I had a woman I knew for a long time. \nShe has been doing guerilla warfare since 14's year." );
     (*(a+49)).set(9, "Donkey", "I don't like this idea, but I'll not leave you alone.");
     //31
-    (*(a+50)).set(15, "\0", "In the dark forest, where the cunning Pitun walks, hid Fiona, \nthe leader of the guerrilla movement in the forests of Fayna Ukrayna.");
-    (*(a+51)).set(15, "Fiona", "Stop! I'll shoot! Hey, say “Palianytsia”!");
+    (*(a+50)).set(15, "\0", "In the dark forest, where the cunning Pitun walks, hid Fiona, the\nleader of the guerrilla movement in the forests of Fayna Ukrayna.");
+    (*(a+51)).set(15, "Fiona", "Stop! I'll shoot! Hey, say \"Palianytsia\"!");
     (*(a+52)).set(15, info.name, "From what will you shoot? Automatons will be? You don't recognize an old friend,\ndo you?"
     " We worked gathering strawberries in Polandia for so many years.");
     (*(a+53)).set(15, "Fiona", "Machine guns will be! Hello. I haven't recognized you immediately.\nWhy did you come? You wanna change zlotys per"
     " 5 hryvnias again?!\nThis time you will not deceive me.");
 
-    (*(a+54)).set(15, info.name, " No, no, what zlotys, what a person you are… There's a war in the country.\nI wanna fight. Pitun took aim on "
+    (*(a+54)).set(15, info.name, "No, no, what zlotys, what a person you are… There's a war in the country.\nI wanna fight. Pitun took aim on "
     "my " + info.noun + ", I must defend them.");
     (*(a+55)).set(15, "Fiona", "Oh, he doesn't need those…");
     (*(a+56)).set(15, info.name, "Trust me, it's 100 percent info!");
     (*(a+57)).set(15, "\0", "After much persuasion, Fiona agreed, though she didn't take it seriously.");
 
-    (*(a+58)).set(16, "\0", info.name + " was right. With the first rays of the sun, Pitun's troops \nbegan to appear on the horizon. This was evidenced"
+    (*(a+58)).set(16, "\0", info.name + " was right. With the first rays of the sun, Pitun's troops began\nto appear on the horizon. This was evidenced"
     " by the long shadows of\nwashing machines and curling irons stolen by the Pitun's army.");
-    (*(a+59)).set(16, "Fiona", " Take Javelins out! Everyone, get ready!");
-    (*(a+60)).set(16, info.name, " OMG, you even have this?!");
+    (*(a+59)).set(16, "Fiona", "Take Javelins out! Everyone, get ready!");
+    (*(a+60)).set(16, info.name, "OMG, you even have this?!");
     (*(a+61)).set(16, "Pitun", pitun_speak(15+rand()%20));
     (*(a+62)).set(16, "Fiona", "On combat positions! Aim!... Fire!");
     (*(a+63)).set(16, "Pitun", pitun_speak(15+rand()%20));
@@ -150,9 +150,9 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
 
 
     (*(a+65)).set(17, "\0", "He shot Pitun with an accurate shot from Javelin, but the blast wave was so\nstrong that it caused \"cotton\" for all the Mordor's"
-    " ammunition. A fragment\n of the projectile hit his" + info.body + ".");
-    (*(a+66)).set(17, "\0", "The " + info.name + "'s wound turned out to be deadly. By the time Fiona\ncame to the rescue, his body was covered in blood. "
-    "Out of despair, she \n" + info.verb + ". Fiona was very disappointed because she actually \nloved " + info.name + ".");
+    " ammunition. A fragment\nof the projectile hit his" + info.body + ".");
+    (*(a+66)).set(17, "\0", "The " + info.name + "'s wound turned out to be deadly. By the time Fiona came to\nthe rescue, his body was covered in blood. "
+    "Out of despair, she " + info.verb + ".\nFiona was very disappointed because she actually loved " + info.name + ".");
     (*(a+67)).set(18, "\0", "Although Pitun's death turned into a victory for Fayna Ukrayna, that forest\nstill remained shrouded in the weeping and grief of Fiona.");
 
     // продовження з теробороною, якщо число більше за 1500
