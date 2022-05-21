@@ -1,9 +1,10 @@
 #include "function.h" //підключення нашої бібліотеки зі всіма функціями
+using namespace std::chrono;
 
 int main() {
     scene script[N]; // масив сцен
     input info; // об'єкт структури для збереження даних, що вводить користувач
-    clock_t start = clock(), finish;
+    high_resolution_clock::time_point t1 = high_resolution_clock::now();
     intro(); // функція, що ознайомлює користувача з ідеєю гри
     
     do { // зациклюємо програму
@@ -28,9 +29,10 @@ int main() {
         } else {
             storytale(68, 85, script);
         }
-        finish = clock();
+        high_resolution_clock::time_point t2 = high_resolution_clock::now();
+        
         outro(); // функція з "титрами"
-        technical_report(start, finish);
+        technical_report(t1, t2);
     } while (loop() == true);
     return 0;
 }

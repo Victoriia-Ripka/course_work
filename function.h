@@ -6,7 +6,9 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
-#include <ctime>
+#include <chrono>
+using namespace std::chrono;
+//#include <thread>
 
 #include "script.h"                 //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 
@@ -28,7 +30,7 @@ bool choice_s();                    //функція вибору сюжету �
 string pitun_speak(int nwords);     //функція, що генерує n випадкових слів типу денацифікація, біолабораторії та інші "скрєпні" речі
 void answer();                      //функція продовження
 bool loop();                        //функція зациклення
-void technical_report(clock_t s, clock_t f);     //функція технічного звіту
+void technical_report(high_resolution_clock::time_point time1, high_resolution_clock::time_point time2);     //функція технічного звіту
 void storytale(int i1, int i2, scene script[N]); //функція, що виводить сюжетний блок "слайдів"
 
 int counter; //лічильник
@@ -363,15 +365,17 @@ void storytale(int i1, int i2, scene script[N]) { //функція, що вив�
     }
 }
 
-void technical_report(clock_t s, clock_t f) {
+void technical_report(high_resolution_clock::time_point time1, high_resolution_clock::time_point time2) {
     counter++;
+    auto duration = duration_cast<microseconds>( time2 - time1 ).count();
+    //double time = ((double)(f-s))/CLOCKS_PER_SEC;
     cout << "\033[2J\033[1;1H"; //обновлення екрану, новий "слайд"
-    cout << "Technical report:\nCouter of user's moves: " << counter << "\nElapsed time: " << ((double)(f-s))/CLOCKS_PER_SEC << "\n\n";
+    cout << "Technical report:\nCouter of user's moves: " << counter << "\nElapsed time: " << duration << "\n\n";
 }
 
 bool loop() { //функція зациклення
     string cont;
-    
+
     cout << "Do you wanna play one more time? Please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else:" << endl;
     cin >> cont;
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
