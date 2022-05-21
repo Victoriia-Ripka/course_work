@@ -26,6 +26,7 @@ bool choice_f();                    //функція вибору сюжету �
 bool choice_s();                    //функція вибору сюжету історії
 string pitun_speak(int nwords);     //функція, що генерує n випадкових слів типу денацифікація, біолабораторії та інші "скрєпні" речі
 void answer();                      //функція продовження
+bool loop();                        //функція зациклення
 void storytale(int i1, int i2, scene script[N]); //функція, що виводить сюжетний блок "слайдів"
 
 //Функція класу scene(сцена)
@@ -51,7 +52,7 @@ void intro() //функція привітання з користувачем �
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
     if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "ye" || userAns == "yea" ||
     userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "та" || userAns == "Та" ||
-    userAns == "Так" || userAns == "так" || userAns == "да" || userAns == "Да" || userAns == "+")
+    userAns == "Так" || userAns == "так" || userAns == "Да" || userAns == "да" || userAns == "+")
     {
         cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
         cout << "about your fight against evil. Press enter." << endl;
@@ -301,7 +302,7 @@ bool choice_f(){//Функція вибору сюжету історії
     default:
     //Ввід неправильний, користувач спробує знову
     cout <<"Nor correct. Input 1 or 2: ";
-        break;;
+        break;
     };
     }
 }
@@ -344,6 +345,29 @@ void storytale(int i1, int i2, scene script[N]) { //функція, що вив�
         show_scene(script[i]); //функція виводу ілюстрації, роздільної смуги та репліки в консоль
         answer();
     }
+}
+
+bool loop() { //функція зациклення
+    string cont;
+
+    cout << "\033[2J\033[1;1H"; //обновлення екрану, новий "слайд"
+    cout << "Do you wanna play one more time? Please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else:" << endl;
+    cin >> cont;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буферу
+
+    if (cont == "Y" || cont == "y" || cont == "yes" || cont == "Yes" || cont == "ye" || cont == "yea" ||
+    cont == "yeah" || cont == "Yeah" || cont == "Т" || cont == "т" || cont == "та" || cont == "Та" ||
+    cont == "Так" || cont == "так" || cont == "Да" || cont == "да" || cont == "+") {
+        return true;
+    }
+    else {
+        cout << endl << endl;
+        centerstring("Thank you for playing!");
+        cout << endl << endl;
+        return false;
+    }
+    
+
 }
 /*
 -------------------------------------------------------------------------------------
