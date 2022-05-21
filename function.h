@@ -15,7 +15,7 @@ void intro();                       //функція привітання з к�
 void outro();                       //функція прощання з користувачем і подяки за гру
 void centerstring(char const *s);   //функція центрування рядка             
 void show_scene(scene a);           //функція виводу сцен у консоль
-void poloska();                     //функція виводу роздільної смуги в консоль
+void line();                        //функція виводу роздільної смуги в консоль
 void f_input(input *info);          //функція вводу доних від користувача
 string inp_name();                  //функція вводу імені користувача, що повертає рядок
 string inp_noun();                  //функція вводу іменника у множині користувача, що повертає рядок
@@ -29,8 +29,8 @@ string pitun_speak(int nwords);     //генерує n випадкових сл
 void answer();
 void storytale(int i1, int i2, scene script[N]);
 
-//Функція класу scena(сцена)
-//Функція з вхідних даних генерує схему ("склаєю окремі стрінги і число в сцену")
+//Функція класу scene(сцена)
+//Функція з вхідних даних генерує схему ("склеює окремі стрінги і число в сцену")
 void scene::set(int ls, string n, string t)
 {
     landscape = ls; //Номер бібліотечного модуля
@@ -43,10 +43,8 @@ void intro() //функція привітання з користувачем �
     string userAns; //ініціалізація рядка - відповіді користувача
 
     cout << endl << "Hello, dear user!" << endl;
-    //system("PAUSE");
     cout << "You are about to play Crazy Librarian, custom version of MadLibs Game.\n\n";
-    //system("PAUSE");
-    cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences.\n";
+    cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
     cout << "The script of a history if fully unique.\n\n";
     cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
@@ -56,11 +54,9 @@ void intro() //функція привітання з користувачем �
         cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
         cout << "about your fight against evil. Press enter." << endl;
     }
-    else return; // щоб користувач не тикав ентер два рази після уведення символа
+    else return; // щоб користувач не натискав ентер два рази після уведення символа
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буфера
-    // cout << endl
-    //      << endl;
 }
 
 void centerstring(char const *s) {
@@ -99,7 +95,7 @@ void outro() //функція привітання з користувачем �
     getchar();
 }
 
-void poloska() //функція виводу роздільної смуги в консоль
+void line() //функція виводу роздільної смуги в консоль
 {
     for (int i = 0; i < 80; i++)
     {
@@ -123,10 +119,10 @@ void show_scene(scene a) //функція виводу сцен у консол�
     printscene(a.landscape);    //Візуалізація написананого
     if (a.name != "\0")         //Перевірка, чи є спікер в сцені
     {
-        poloska();
+        line();
         cout << a.name << endl; //якщо спікер в сцені, то вивести в консоль його ім'я
     }
-    poloska();
+    line();
     cout << a.text;
 }
 

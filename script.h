@@ -1,8 +1,8 @@
 #include "models.h" //бібліотека підключення наших ілюстрацій до слайдів
 
 
- //клас сцена - головна одиниця інформації в нашій програмі
-//В ньому зберігається вся інформація про кожний "Слайд"
+//клас "сцена" - ключовий тип даних, головна одиниця інформації в нашій програмі
+//В ньому зберігається вся інформація про кожний "слайд"
 class scene 
 {
 public:
@@ -13,7 +13,7 @@ public:
     //Ім'я говорячого в сцені
     //Якщо "\0" то слова автора
     string name;
-    //Відповідно тест сцени
+    //Відповідно текст сцени
     string text;
 };
 string pitun_speak(int nwords); // прототип функції генерації пітуна
@@ -60,7 +60,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     "of Fayna Ukrayna under the command of his long-time school\nfriend, a major Serhiy Prytula.");
     (*(a+11)).set(8, "Serhiy Prytula" , "Good morning, "+info.name+". Why did you come?");
     (*(a+12)).set(8, info.name ,"Hi. Em…. Why that?…, to defend my swamp, my friend Donkey and "+info.noun+",\nof course. All I have.");
-    (*(a+13)).set(8, "Serhiy Prytula","We have already no places, all posts have long been occupied by others.\nFor 1 automaton - 300 willings.");
+    (*(a+13)).set(8, "Serhiy Prytula","We have already no places, all posts have long been occupied by others.\nFor 1 assault rifle - 300 willings.");
     (*(a+14)).set(8, info.name ,"So how do I be now? What should I do?");
     (*(a+15)).set(8, "Serhiy Prytula","I can… so to say, due to our long-time friendship, \nI can take you as a squadron commander.");
     (*(a+16)).set(8, info.name ,"Thank you, thank you!");
@@ -68,8 +68,8 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+18)).set(8, info.name ,"What…?!");
     (*(a+19)).set(8, "\0" ,info.name+" takes out his wallet from a pocket and looks. \nThere were "+ info.numeric +" hryvnias.");
     
-    // розвилка 1, де цифра менше за 1500 з 20ї сцена,
-    // розвилка 2 де цифра більше за 1500 з 68ої сцени
+    // розвилка 1, де цифра менша за 1500 з 20-ої сцена,
+    // розвилка 2, де цифра більша за 1500 з 68-ої сцени
 
     (*(a+20)).set(8, info.name ,"OMG, I don't have enough money…");
     (*(a+21)).set(8, "Serhiy Prytula","Welp, so I can't help with anything. Go on.");
@@ -113,14 +113,14 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
 
     (*(a+46)).set(13, "\0", "Out of anger, he took out a cannon and started firing at Powderbot. \nWith a well-aimed shot Pitun hit straight"
     " at his " + info.body + ". \n" + info.name + " was overwhelmed with rage. He saw this horror through\nthe window in the negotiating room and "
-    "wanted revenge for his beloved.");
+    "wanted revenge for the hetman.");
     (*(a+46)).set(13, "\0", "Jumping into the same window, he grabbed Pitun from behind and cut off his \nthroat. A lot of " + info.noun +
     " were lying on the table in the room. " + info.name + " fell into\na stupor. \"This would save his life!\" - he thought.");
 
     (*(a+47)).set(14,"\0", "Seeing this, Powderbot resurrected. Universal good has defeated universal\nevil, and " + info.name + " moved to Powderbot "
     "to live on the estate, co-owning\nfinancial wealth of " + info.numeric + "0 thousands of hryvnias.");
 
-    // вибір 2, продовження після 31ої сцени
+    // вибір 2, продовження після 31-ої сцени
 
     (*(a+48)).set(9, info.name, "I do not trust a Chocolate king, let's better have guerilla warfare.\nLet's better go to the forest,"
     " I had a woman I knew for a long time. \nShe has been doing guerilla warfare since 14's year." );
@@ -128,8 +128,8 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     //31
     (*(a+50)).set(15, "\0", "In the dark forest, where the cunning Pitun walks, hid Fiona, the\nleader of the guerrilla movement in the forests of Fayna Ukrayna.");
     (*(a+51)).set(15, "Fiona", "Stop! I'll shoot! Hey, say \"Palianytsia\"!");
-    (*(a+52)).set(15, info.name, "From what will you shoot? Automatons will be? You don't recognize an old friend,\ndo you?"
-    " We worked gathering strawberries in Polandia for so many years.");
+    (*(a+52)).set(15, info.name, "From what will you shoot? Assault rifles will be? You don't recognize an\nold friend, do you?"
+    " We worked gathering strawberries in Polandia for so\nmany years.");
     (*(a+53)).set(15, "Fiona", "Machine guns will be! Hello. I haven't recognized you immediately.\nWhy did you come? You wanna change zlotys per"
     " 5 hryvnias again?!\nThis time you will not deceive me.");
 
@@ -155,7 +155,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     "Out of despair, she " + info.verb + ".\nFiona was very disappointed because she actually loved " + info.name + ".");
     (*(a+67)).set(18, "\0", "Although Pitun's death turned into a victory for Fayna Ukrayna, that forest\nstill remained shrouded in the weeping and grief of Fiona.");
 
-    // продовження з теробороною, якщо число більше за 1500
+    // продовження з ТерОбороною, якщо число більше за 1500
 
     (*(a+68)).set(8, info.name, "You rob me, my friend, but my homeland is priceless.");
     (*(a+69)).set(8, "Serhiy Prytula", "Do not invent nonsense, as from yours " + info.numeric +" hryvnias subtract 1500, you\nwill not become much poorer. But that will"
@@ -168,7 +168,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     " receive " + info.noun + " and " + info.name + "'s " + info.body + " as trophies.\nHe had no ideas about a possible ambush.");
     (*(a+72)).set(20, "\0", pitun_speak(15+rand()%20)+"\n\n - muttered Pitun under his nose.");
     (*(a+73)).set(20, info.name , "\"How dare you say that about my Fatherland?!\" \n- he thought and filled himself with rage.");
-    (*(a+74)).set(20, "\0", "As soon as Pitun approached the glorious swamp, " + info.name + " jumped out of\nthe trench, bent his arms and put the automaton to the temple.");
+    (*(a+74)).set(20, "\0", "As soon as Pitun approached the glorious swamp, " + info.name + " jumped out of\nthe trench, bent his arms and put the assault rifle to the temple.");
 
     (*(a+75)).set(21, info.name, "Well, here you are, our not-sweet lad.");
     (*(a+76)).set(21, "Pitun", pitun_speak(15+rand()%20) + " \n\n - that one turned to its own again.");
