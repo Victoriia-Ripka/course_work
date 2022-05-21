@@ -23,29 +23,29 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
 {
     //string temp; //ініціалізаця рядка, який буде виводитися на екран. При виводі в консоль буде містити потрібне слово
     
-    (*a).set(1, "\0", info.name +" had been living in his den in a swamp. … His life wasn’t\nbeautiful,"
+    (*a).set(1, "\0", info.name +" had been living in his lair in a swamp. … His life wasn’t\nbeautiful,"
     " but that one wasn’t complaining. Lived quietly, enjoyed \nmorning’s fragrances of swamp, frog’s croaks, which didn’t "
-    "let him to \nfall asleep at night and " + info.verb + "  with his friend Donkey.");
+    "let him to \nfall asleep at night and " + info.verb + " with his friend Donkey.");
 
     
     (*(a + 1)).set(2, "\0", "But the neighboring Kingdom wasn’t sharing "+info.name+"’s happiness. It was\nruled by an old,"
     " unwashed, plush dwarf. His Kingdom had a name that speaks \nfor itself - Mordor. Pitun was a strict ruler, however, it didn’t embarrass\n"
-    "its people. They, being unable to think, were conversely happy\nabout a strong hand and happily satisfied all the whims of Pitun.");
+    "its people. They, being unable to think, were conversely happy about\na stronghand and happily satisfied all the whims of Pitun.");
 
     (*(a + 2)).set(3, "\0", "Once upon a time Pitun looked at a swamp of "+info.name+" and began to feel\nenvious. That one had an asphalt in his swamp and"
-    " ate Nutella in the evenings.\n" + info.name + "’s streets were nightly lit by the lanterns. But the " + info.noun + "\ncaused him the most envy."
+    " ate Nutella in the evenings.\n" + info.name + "’s streets were nightly lit by the lanterns. But the " + info.noun + " caused\nhim the most envy."
     " Therefore Pitun decided to denazify the swamp.");
     
     (*(a + 3)).set(4, "\0", "Pitun collected a military equipment from everywhere, issued the expired\nrations to the people and ordered to"
     " bomb "+info.name+"’s swamp at night. \nA faithful people outsteped the border without any hesitation.");
 
     (*(a + 4)).set(5, "\0", "And the projectiles flew on the peaceful people of country Fayna Ukrayna, \nwhere the swamp of "+info.name+" was located."
-    " An army of Pitun \nfired in everything it sees notably cruelly and cynically. "+info.name+"\nwoke up because of loud shots."
-    " He suspected the insidiousness of Pitun, as \nwell as his envy of " + info.noun + ".");
+    " An army of Pitun fired in everything \nit sees notably cruelly and cynically. "+info.name+" woke up because of loud \nshots."
+    " He suspected the insidiousness of Pitun, as well as his\nenvy of " + info.noun + ".");
 
-    (*(a + 5)).set(5, "\0", "So he woke up with full awareness about what is happening. “He turned to its\nown again”, - he thought . "
-    +info.name+" recomposed his bags, packed the Donkey,\n havingan intention to leave for the neighboring Polandia . He realized in \na moment"
-    " - all his life is here, he has nowhere to run, he is on his own land.\n "+info.name+" was faced with a choice that will change his life.");
+    (*(a + 5)).set(5, "\0", "So he woke up with full awareness about what is happening. “He turned to its\nown again”, - he thought. "
+    +info.name+" recomposed his bags, packed the Donkey,\nhaving an intention to leave for the neighboring Polandia. He realized in \na moment"
+    " - all his life is here, he has nowhere to run, he is on his own land.\n"+info.name+" was faced with a choice that will change his life.");
     
     //тут має бути вибір 1) і 2)
     //якщо вибір 2 - з 6 по 9 проміжна сцена , якщо вибір 1 - перехід до 10 сцени

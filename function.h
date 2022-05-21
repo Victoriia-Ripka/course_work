@@ -1,28 +1,32 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
-#include <stdlib.h>
 #include <limits>
 #include <regex>
-#include "script.h" //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
-#include <iostream>
 #include <string>
+#include <cstring>
+//#include <stdlib.h>
 #include <cstdlib>
+#include <cstdio>
+
+#include "script.h" //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 
 
-void introduction();           //функція привітання з користувачем та ознайомлення з суттю гри
-void show_scene(scene a);      //функція виводу сцен у консоль
-void poloska();                //функція виводу роздільної смуги в консоль
-void f_input(input *info);     //функція вводу доних від користувача
-string inp_name();             //функція вводу імені користувача, що повертає рядок
-string inp_noun();             //функція вводу іменника у множині користувача, що повертає рядок
-string inp_numeric();          //функція вводу числа користувача, що повертає рядок
-string inp_verb();             //функція вводу дієслова користувача, що повертає рядок
-string inp_part_of_the_body(); //функція вводу частини тіла, що повертає рядок
-void all_lower(char *word);    //функція, що робить всі літери в слові маленькими
-bool choice_f();                //Функція вибору сюжету історії
-bool choice_s();                //Функція вибору сюжету історії
-string pitun_speak(int nwords);//Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
+
+void intro();                       //функція привітання з користувачем та ознайомлення з суттю гри
+void outro();                       //функція прощання з користувачем і подяки за гру
+void centerstring(char const *s);   //функція центрування рядка             
+void show_scene(scene a);           //функція виводу сцен у консоль
+void poloska();                     //функція виводу роздільної смуги в консоль
+void f_input(input *info);          //функція вводу доних від користувача
+string inp_name();                  //функція вводу імені користувача, що повертає рядок
+string inp_noun();                  //функція вводу іменника у множині користувача, що повертає рядок
+string inp_numeric();               //функція вводу числа користувача, що повертає рядок
+string inp_verb();                  //функція вводу дієслова користувача, що повертає рядок
+string inp_part_of_the_body();      //функція вводу частини тіла, що повертає рядок
+void all_lower(char *word);         //функція, що робить всі літери в слові маленькими
+bool choice_f();                    //функція вибору сюжету історії
+bool choice_s();                    //функція вибору сюжету історії
+string pitun_speak(int nwords);     //Генерує n випадкових слів тіпа денаціифакція, біолабораторії та інші скрєпні речі
 void answer();
 void storytale(int i1, int i2, scene script[N]);
 
@@ -39,20 +43,60 @@ void intro() //функція привітання з користувачем �
 {
     string userAns; //ініціалізація рядка - відповіді користувача
 
-    cout << "Good afternoon, dear user!" << endl;
-    cout << "You are about to play *Crazy librarian*, custom version of MadLibs Game.";
-    cout << "If you need game instructions enter \"Y\".\nOtherwise, enter whatever: " << endl;
+    cout << endl << "Hello, dear user!" << endl;
+    //system("PAUSE");
+    cout << "You are about to play Crazy Librarian, custom version of MadLibs Game.\n\n";
+    //system("PAUSE");
+    cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences.\n";
+    cout << "The script of a history if fully unique.\n\n";
+    cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever: " << endl;
     cin >> userAns;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');//Чистка буферу
-    if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes")
+    if (userAns == "Y" || userAns == "y" || userAns == "yes" || userAns == "Yes" || userAns == "Т" || userAns == "т" || userAns == "Так" || userAns == "так" || userAns == "+")
     {
-        cout << "\n**Crazy librarian* is a word game. You are asked for words to create \nyour own history ";
-        cout << "about your fidht against evil" << endl;
+        cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
+        cout << "about your fight against evil. Press enter." << endl;
     }
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буфера
-    cout << endl
-         << endl;
+    // cout << endl
+    //      << endl;
+}
+
+void centerstring(char const *s) {
+    int length=strlen(s);
+    int pos=(int)((80-length)/2);
+    for(int i=0;i<pos;i++) {
+        cout<<" ";
+    }
+    cout<<s;
+}
+
+void outro() //функція привітання з користувачем та ознайомлення з суттю гри
+{
+    cout << "\033[2J\033[1;1H";
+    for (int i=0; i<7; i++) {
+        cout << endl;
+    }
+    centerstring("THE END");
+    cout << endl << endl;
+    centerstring("Developers:");
+    cout << endl;
+    centerstring("Viktoria Ripka");
+    cout << endl;
+    centerstring("Vitalii Solonychnyi");
+    cout << endl;
+    centerstring("Dmytro Syniuk");
+    cout << endl;
+    centerstring("Dmytro Stelmakh");
+    cout << endl << endl;
+    centerstring("Produced in Ukraine");
+    cout << endl;
+    centerstring("2022");
+    for (int i=0; i<7; i++) {
+        cout << endl;
+    }
+    getchar();
 }
 
 void poloska() //функція виводу роздільної смуги в консоль
@@ -67,7 +111,7 @@ void poloska() //функція виводу роздільної смуги в 
 void f_input(input *info) //функція вводу доних від користувача, приймає посилання на структуру
 {
     info->name = inp_name();             //присвоєння члену структури введене користувачем ім'я при використанні функції вводу імені
-    info->noun = inp_noun();             //присвоєння члену структури введене користувачем іменника у множні при використанні функції
+    info->noun = inp_noun();             //присвоєння члену структури введене користувачем іменника у множині при використанні функції
     info->numeric = inp_numeric();       //присвоєння члену структури введене користувачем числа при використанні функції
     info->body = inp_part_of_the_body(); //присвоєння члену структури введене користувачем частини тіла при використанні функції
     info->verb = inp_verb();             //присвоєння члену структури введене користувачем дієслова при використанні функції
@@ -75,12 +119,12 @@ void f_input(input *info) //функція вводу доних від кори
 
 void show_scene(scene a) //функція виводу сцен у консоль, приймає структуру "сцена"
 {
-    cout << "\033[2J\033[1;1H"; //Переводить курсор в лівий верхній вугол, тіп створює новий слайд
+    cout << "\033[2J\033[1;1H"; //Переводить курсор в лівий верхній кут, тіп створює новий слайд
     printscene(a.landscape);    //Візуалізація написананого
     if (a.name != "\0")         //Перевірка, чи є спікер в сцені
     {
         poloska();
-        cout << a.name << endl; //якщо спфкер в сцені, то вивести в консоль його ім'я
+        cout << a.name << endl; //якщо спікер в сцені, то вивести в консоль його ім'я
     }
     poloska();
     cout << a.text;
@@ -90,7 +134,7 @@ string inp_name() //функція вводу імені користувача,
 {
     regex r("[A-Za-z]*");
     string name;
-    cout << "Input name" << endl;
+    cout << endl << "Input name" << endl;
     cin >> name;
     getchar();
     while (!regex_match(name, r) || name.length()<3 || name.length()>20)
@@ -107,7 +151,7 @@ string inp_noun() //функція вводу іменника у множині
 {
     regex r("[A-Za-z]*");
     string noun;
-    cout << "Input noun in the plural" << endl;
+    cout << endl << "Input noun in the plural" << endl;
     cin >> noun;
     getchar();
     while (!regex_match(noun, r) || noun.length()<3 || noun.length()>20 || (noun.back() != 's' && noun.back() !='S'))
@@ -123,7 +167,7 @@ string inp_numeric() //функція вводу числа користувач
 {   
     regex r("[0-9]*");
     string number;
-    cout << "Input number" << endl;
+    cout << endl << "Input number" << endl;
     cin >> number;
     getchar();
     while (!regex_match(number, r) || number.length()>10)
@@ -140,7 +184,7 @@ string inp_verb() //функція вводу дієслова, що повер�
     bool ind = 0;   //ініціалізація локальної змінної для продовження цикла
     char buf[SIZE]; //ініціалізація масиву символів
     ifstream f;     //ініціалізація файла
-    cout << "Input verb" << endl;
+    cout << endl << "Input verb" << endl;
     cin.getline(buf, SIZE);            //ввід дієслова (масиву символів), максимальна кількість літер 99
     all_lower(buf);     //перетворення всіх літер на маленькі
     char d_o_v[SIZE];                  //ініціалізація рядка символів
@@ -180,7 +224,7 @@ string inp_part_of_the_body() //функція вводу частини тіл�
     bool ind = 0; //логіка функції така сама, що і у функції inp_verb()
     char buf[SIZE];
     ifstream f;
-    cout << "Input part of the body" << endl;
+    cout << endl << "Input part of the body" << endl;
     cin.getline(buf, SIZE);
     all_lower(buf);     //перетворення всіх літер на маленькі   
         char p_o_t_b[SIZE];
@@ -330,7 +374,7 @@ void build(Prefix &prefix)
     textfile.open("Pitun_speak.txt");
     if (!textfile.is_open())
     {
-        cout << "Error: cannot open pitun.txt file" << endl;
+        cout << "Error: cannot open Pitun_speak.txt file" << endl;
         return;
     }
     while (textfile >> buf)
