@@ -17,6 +17,7 @@ public:
     string text;
 };
 
+string pitun_speak(int nwords);    
 
 void cut_paste(input info, scene *a) //функція виводу реплік, яка приймає структуру даних, що ввів користувач, і посилання на поточну сцену
 {
