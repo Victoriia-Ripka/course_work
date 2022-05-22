@@ -364,7 +364,7 @@ void technical_report(high_resolution_clock::time_point time1, high_resolution_c
     counter++;
     auto duration = duration_cast<seconds>( time2 - time1 ).count();
     //double time = ((double)(f-s))/CLOCKS_PER_SEC;
-    cout << "\033[2J\033[1;1H"; //обновлення екрану, новий "слайд"
+    cout << "\033[2J\033[1;1H" << endl; //обновлення екрану, новий "слайд"
     cout << "Technical report:\nNumber of user's moves: " << counter << "\nElapsed time: " << duration << " seconds\n\n";
 }
 
