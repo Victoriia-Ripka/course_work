@@ -51,7 +51,7 @@ void intro() //функція привітання з користувачем �
     string userAns; //ініціалізація рядка - відповіді користувача
 
     cout << endl << "Hello, dear user!" << endl;
-    cout << "You are about to play Crazy Librarian, custom version of MadLibs Game.\n\n";
+    cout << "You are about to play Mad Shrek, custom version of MadLibs Game.\n\n";
     cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
     cout << "The script of a history if fully unique.\n\n";
     cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else: " << endl;
