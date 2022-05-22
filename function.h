@@ -53,7 +53,7 @@ void intro() //функція привітання з користувачем �
     cout << endl << "Hello, dear user!" << endl;
     cout << "You are about to play Mad Shrek, custom version of MadLibs Game.\n\n";
     cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
-    cout << "The script of a history if fully unique.\n\n";
+    cout << "The script of a history is fully unique.\n\n";
     cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else: " << endl;
     counter++;
 
@@ -64,7 +64,7 @@ void intro() //функція привітання з користувачем �
     userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "Та" || userAns == "та" ||
     userAns == "Так" || userAns == "так" || userAns == "Да" || userAns == "да" || userAns == "+")
     {
-        cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
+        cout << "\nMad Shrek is a word game. You are asked for words to create \nyour own history ";
         cout << "about your fight against evil. Press enter." << endl;
     }
     else return; //щоб користувач не натискав ентер два рази після уведення символа
