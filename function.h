@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <limits>
 #include <regex>
-#include "script.h" //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 #include <string>
 #include <cstring>
 #include <cstdlib>
