@@ -47,7 +47,7 @@ void scene::set(int ls, string n, string t)
 void intro() //функція привітання з користувачем та ознайомлення з суттю гри
 {
     counter = 0;
-
+    cout << "\033[2J\033[1;1H";
     string userAns; //ініціалізація рядка - відповіді користувача
 
     cout << endl << "Hello, dear user!" << endl;
