@@ -107,7 +107,7 @@ void cut_paste(input info, scene *a) //функція виводу реплік,
     (*(a+42)).set(12, "Powderbot", "Do you want a chocolate fig?");
     (*(a+43)).set(12, "Pitun", "Well, OK, $2.000.000.");
     (*(a+44)).set(12, "Powderbot", "Hmmm… It's tempting. Take these two chocolate Santas, you'll have 'em.");
-    (*(a+45)).set(12, "Pitun", Pitun_speak(15+rand()%20) + "…");
+    (*(a+45)).set(12, "Pitun", pitun_speak(15+rand()%20) + "…");
 
     (*(a+46)).set(13, NO_NAME, "Out of anger, he took out a cannon and started firing at Powderbot. \nWith a well-aimed shot Pitun hit straight"
     " at his " + info.body + ". \n" + info.name + " was overwhelmed with rage. He saw this horror through\nthe window in the negotiating room and "
