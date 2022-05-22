@@ -1,5 +1,4 @@
 #include "function.h" //підключення нашої бібліотеки з усіма функціями
-using namespace std::chrono;
 
 int main() {
     scene script[N]; // масив сцен
