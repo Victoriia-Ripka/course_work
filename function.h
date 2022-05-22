@@ -1,5 +1,6 @@
 #include <iostream>
-#include <fstream>
+#include <cstring>
+#include <stdlib.h>
 #include <limits>
 #include <regex>
 #include <string>
@@ -45,13 +46,13 @@ void scene::set(int ls, string n, string t)
 void intro() //функція привітання з користувачем та ознайомлення з суттю гри
 {
     counter = 0;
-
+    cout << "\033[2J\033[1;1H";
     string userAns; //ініціалізація рядка - відповіді користувача
 
     cout << endl << "Hello, dear user!" << endl;
-    cout << "You are about to play Crazy Librarian, custom version of MadLibs Game.\n\n";
+    cout << "You are about to play Mad Shrek, custom version of MadLibs Game.\n\n";
     cout << "Disclaimer! All the characters are fictional.\nAll matches with real people are coincidences." << endl;
-    cout << "The script of a history if fully unique.\n\n";
+    cout << "The script of a history is fully unique.\n\n";
     cout << "If you need game instructions, please, enter \"Y\" or \"+\".\nOtherwise, enter whatever else: " << endl;
     counter++;
 
@@ -62,7 +63,7 @@ void intro() //функція привітання з користувачем �
     userAns == "yeah" || userAns == "Yeah" || userAns == "Т" || userAns == "т" || userAns == "Та" || userAns == "та" ||
     userAns == "Так" || userAns == "так" || userAns == "Да" || userAns == "да" || userAns == "+")
     {
-        cout << "\nCrazy Librarian is a word game. You are asked for words to create \nyour own history ";
+        cout << "\nMad Shrek is a word game. You are asked for words to create \nyour own history ";
         cout << "about your fight against evil. Press enter." << endl;
     }
     else return; //щоб користувач не натискав ентер два рази після уведення символа
@@ -139,12 +140,12 @@ void show_scene(scene a) //функція виводу сцен у консол�
 
 string inp_name() //функція вводу імені користувача, що повертає рядок
 {
+    cout << "\033[2J\033[1;1H";
     regex r("[A-Za-z]*");
     string name;
     cout << endl << "Input name:" << endl;
-    cin >> name;
+    getline(cin,name);
     counter++;
-    getchar();
     while (!regex_match(name, r) || name.length()<3 || name.length()>20)
     {
         if (!regex_match(name, r)) {
@@ -153,8 +154,7 @@ string inp_name() //функція вводу імені користувача,
         else {
             cout << "The name is too short or too long. Input name:" << endl;
         }
-        cin >> name;
-        getchar();
+        getline(cin,name);
     }
     name[0] = toupper(name[0]); //оскільки це ім'я, то першу літеру зробити великою
     return name;       //повернути рядок, що був масивом символів
@@ -165,9 +165,8 @@ string inp_noun() //функція вводу іменника у множині
     regex r("[A-Za-z]*");
     string noun;
     cout << endl << "Input noun in the plural:" << endl;
-    cin >> noun;
+    getline(cin,noun);
     counter++;
-    getchar();
     while (!regex_match(noun, r) || noun.length()<3 || noun.length()>20 || (noun.back() != 's' && noun.back() !='S'))
     {
         if (!regex_match(noun, r)) {
@@ -179,8 +178,7 @@ string inp_noun() //функція вводу іменника у множині
         else {
             cout << "Inputted noun is too short or too long. Input noun in the plural:" << endl;
         }
-        cin >> noun;
-        getchar();
+        getline(cin,noun);
     }
     return noun;
 }
@@ -190,9 +188,8 @@ string inp_numeric() //функція вводу числа користувач
     regex r("[0-9]*");
     string number;
     cout << endl << "Input number:" << endl;
-    cin >> number;
+    getline(cin,number);
     counter++;
-    getchar();
     while (!regex_match(number, r) || number.length()>10)
     {
         if (!regex_match(number, r)) {
@@ -201,8 +198,7 @@ string inp_numeric() //функція вводу числа користувач
         else {
             cout << "The number is too long. Input number:" << endl;
         }
-        cin >> number;
-        getchar();
+        getline(cin,number);
     }
     return number;
 }

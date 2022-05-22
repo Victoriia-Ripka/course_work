@@ -4,8 +4,9 @@
 #include <deque>   //prefix in pitun_speak()
 using namespace std;
 
-#define N 100    //Кількість сцен (із запасом)
+#define N 85    //Кількість сцен
 #define SIZE 99  //кількість дозволених елементів у масивах символів, що вводить користувач
+#define NO_NAME "\0"
 
 class input //структура, що зберігає дані введені користувачем
 {
