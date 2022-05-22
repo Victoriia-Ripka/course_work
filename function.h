@@ -145,9 +145,8 @@ string inp_name() //функція вводу імені користувача,
     regex r("[A-Za-z]*");
     string name;
     cout << endl << "Input name:" << endl;
-    cin >> name;
+    getline(cin,name);
     counter++;
-    getchar();
     while (!regex_match(name, r) || name.length()<3 || name.length()>20)
     {
         if (!regex_match(name, r)) {
@@ -156,8 +155,7 @@ string inp_name() //функція вводу імені користувача,
         else {
             cout << "The name is too short or too long. Input name:" << endl;
         }
-        cin >> name;
-        getchar();
+        getline(cin,name);
     }
     name[0] = toupper(name[0]); //оскільки це ім'я, то першу літеру зробити великою
     return name;       //повернути рядок, що був масивом символів
@@ -168,9 +166,8 @@ string inp_noun() //функція вводу іменника у множині
     regex r("[A-Za-z]*");
     string noun;
     cout << endl << "Input noun in the plural:" << endl;
-    cin >> noun;
+    getline(cin,noun);
     counter++;
-    getchar();
     while (!regex_match(noun, r) || noun.length()<3 || noun.length()>20 || (noun.back() != 's' && noun.back() !='S'))
     {
         if (!regex_match(noun, r)) {
@@ -182,8 +179,7 @@ string inp_noun() //функція вводу іменника у множині
         else {
             cout << "Inputted noun is too short or too long. Input noun in the plural:" << endl;
         }
-        cin >> noun;
-        getchar();
+        getline(cin,noun);
     }
     return noun;
 }
@@ -193,9 +189,8 @@ string inp_numeric() //функція вводу числа користувач
     regex r("[0-9]*");
     string number;
     cout << endl << "Input number:" << endl;
-    cin >> number;
+    getline(cin,number);
     counter++;
-    getchar();
     while (!regex_match(number, r) || number.length()>10)
     {
         if (!regex_match(number, r)) {
@@ -204,8 +199,7 @@ string inp_numeric() //функція вводу числа користувач
         else {
             cout << "The number is too long. Input number:" << endl;
         }
-        cin >> number;
-        getchar();
+        getline(cin,number);
     }
     return number;
 }
