@@ -1,10 +1,11 @@
-#include "function.h" //підключення нашої бібліотеки зі всіма функціями
+#include "function.h" //підключення нашої бібліотеки з усіма функціями
 using namespace std::chrono;
 
 int main() {
     scene script[N]; // масив сцен
     input info; // об'єкт структури для збереження даних, що вводить користувач
     high_resolution_clock::time_point t1 = high_resolution_clock::now();
+    
     intro(); // функція, що ознайомлює користувача з ідеєю гри
     
     do { // зациклюємо програму

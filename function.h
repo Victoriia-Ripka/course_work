@@ -8,7 +8,6 @@
 #include <cstdio>
 #include <chrono>
 using namespace std::chrono;
-//#include <thread>
 
 #include "script.h"                 //підключення нашої бібліотеки, де виводимо в консоль репліки з даними від користувача
 
