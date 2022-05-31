@@ -15,7 +15,7 @@ using namespace std::chrono;
 
 void intro();                       //функція привітання з користувачем та ознайомлення з суттю гри
 void outro();                       //функція з "титрами"
-void centerstring(char const *s);   //функція центрування рядка             
+void centerstring(string str);   //функція центрування рядка             
 void show_scene(scene a);           //функція виводу сцен у консоль
 void line();                        //функція виводу роздільної смуги в консоль
 void f_input(input *info);          //функція вводу доних від користувача
@@ -71,13 +71,10 @@ void intro() //функція привітання з користувачем �
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Очистка буфера
 }
 
-void centerstring(char const *s) {
-    int length=strlen(s);
-    int pos=(int)((80-length)/2);
-    for(int i = 0; i < pos; i++) {
-        cout<<" ";
-    }
-    cout << s;
+void centerstring(string str) {
+	cout.width((80+str.size())/2);
+	cout.setf(ios::internal, ios::adjustfield);
+	cout << str << endl;
 }
 
 void outro() //функція з "титрами"
@@ -87,19 +84,19 @@ void outro() //функція з "титрами"
         cout << endl;
     }
     centerstring("THE END");
-    cout << endl << endl;
+    cout << endl;
     centerstring("Developers:");
-    cout << endl;
+    
     centerstring("Viktoria Ripka");
-    cout << endl;
+    
     centerstring("Vitalii Solonychnyi");
-    cout << endl;
+    
     centerstring("Dmytro Syniuk");
-    cout << endl;
+    
     centerstring("Dmytro Stelmakh");
-    cout << endl << endl;
+    
     centerstring("Produced in Ukraine");
-    cout << endl;
+    
     centerstring("KPI, 2022");
     for (int i=0; i<7; i++) {
         cout << endl;
