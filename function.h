@@ -15,7 +15,7 @@ using namespace std::chrono;
 
 void intro();                       //функція привітання з користувачем та ознайомлення з суттю гри
 void outro();                       //функція з "титрами"
-void centerstring(string str);   //функція центрування рядка             
+void centerstring(string str);      //функція центрування рядка             
 void show_scene(scene a);           //функція виводу сцен у консоль
 void line();                        //функція виводу роздільної смуги в консоль
 void f_input(input *info);          //функція вводу доних від користувача
@@ -360,7 +360,6 @@ void storytale(int i1, int i2, scene script[N]) { //функція, що вив�
 void technical_report(high_resolution_clock::time_point time1, high_resolution_clock::time_point time2) {
     counter++;
     auto duration = duration_cast<seconds>( time2 - time1 ).count();
-    //double time = ((double)(f-s))/CLOCKS_PER_SEC;
     cout << "\033[2J\033[1;1H" << endl; //обновлення екрану, новий "слайд"
     cout << "Technical report:\nNumber of user's moves: " << counter << "\nElapsed time: " << duration << " seconds\n\n";
 }
