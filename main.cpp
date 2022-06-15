@@ -30,7 +30,7 @@ int main() {
         } else {
             storytale(68, 85, script);
         }
-        //В змінну t2 записуємо час в момент кінця показу історії
+        //В змінну t2 записуємо час в момент кінця показу
         high_resolution_clock::time_point t2 = high_resolution_clock::now();
         outro(); // функція з "титрами"
         technical_report(t1, t2);//Виводить технічні дані
