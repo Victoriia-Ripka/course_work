@@ -438,7 +438,7 @@ void build(Prefix &prefix)
 string generate(int nwords)
 {
     Prefix prefix;
-    string result = " ";
+    string result = "";
     int i;
     for (i = 0; i < NPREF; i++) //скидуємо префікс і робимо його з заглушок, щоб початок працював коректно
         add(prefix, NONWORD);
